@@ -106,6 +106,8 @@
 #include "code\game\turfs\simulated\floor.dm"
 #include "code\game\turfs\open.dm"
 #include "code\game\mecha\mech_bay.dm"
+#include "code\modules\research\techweb\all_nodes.dm"
+#include "code\game\machinery\pod_fabricator.dm"
 #include "code\game\objects\effects\contraband.dm"
 #include "code\game\objects\structures\artstuff.dm"
 #include "code\game\objects\structures\bedsheet_bin.dm"

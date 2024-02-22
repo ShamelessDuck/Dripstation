@@ -16,7 +16,7 @@
 								"Ammo",
 								"Firing Pins",
 								"Computer Parts",
-								"Spacepod Designs", // yoggers
+								//"Spacepod Designs", // dripstation spacepod move to new fab
 								"Service",
 								"Assemblies"
 								)

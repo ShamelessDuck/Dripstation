@@ -27,7 +27,7 @@
 								"Research Machinery",
 								"Misc. Machinery",
 								"Computer Parts",
-								"Spacepod Designs", // yogs
+								//"Spacepod Designs", // dripstation edit
 								"Service" //yogs
 								)
 	console_link = FALSE
