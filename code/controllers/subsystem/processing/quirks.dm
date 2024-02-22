@@ -17,9 +17,11 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 	if(!quirks.len)
 		SetupQuirks()
 
+	//Psychopathic, Bad Touch dripstation edit
 	quirk_blacklist = list(
 		list("Blind","Nearsighted"),
-		list("Jolly","Depression","Apathetic","Hypersensitive"),
+		list("Jolly","Depression","Apathetic","Hypersensitive","Psychopathic"),
+		list("Bad Touch", "Friendly"),
 		list("Ageusia","Vegetarian","Deviant Tastes"),
 		list("Ananas Affinity","Ananas Aversion"),
 		list("Alcohol Tolerance","Light Drinker"),

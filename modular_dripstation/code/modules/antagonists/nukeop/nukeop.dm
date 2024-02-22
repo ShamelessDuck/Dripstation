@@ -1,3 +1,6 @@
+/datum/antagonist/nukeop
+	antag_moodlet = /datum/mood_event/slaughter
+
 /datum/antagonist/nukeop/on_gain()
 	. = ..()
 	equip_op()
@@ -25,6 +28,10 @@
 			purrbation_toggle_onlyhumans(H)
 		var/chosen_name = H.dna.species.random_name(H.gender,0,pick(GLOB.last_names))
 		owner.current.real_name = "[chosen_name]"
+	if(H.has_trauma_type(/datum/brain_trauma/severe/paralysis/paraplegic, TRAUMA_RESILIENCE_ABSOLUTE))
+		H.cure_trauma_type(/datum/brain_trauma/severe/paralysis/paraplegic, TRAUMA_RESILIENCE_ABSOLUTE)	//you won it, gamer
+	if(is_blind(H))
+		H.cure_blind()
 
 	H.equipOutfit(nukeop_outfit)
 	return TRUE

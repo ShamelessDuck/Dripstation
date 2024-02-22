@@ -221,6 +221,7 @@
 #include "code\__DEFINES\{dripstation_defines}\blackmarket.dm"
 #include "code\__DEFINES\{dripstation_defines}\cargo.dm"
 #include "code\__DEFINES\{dripstation_defines}\dcs\signals\signals_transform.dm"
+#include "code\__DEFINES\{dripstation_defines}\traits.dm"
 #include "code\__DEFINES\{yogs_defines}\admin.dm"
 #include "code\__DEFINES\{yogs_defines}\antagonists.dm"
 #include "code\__DEFINES\{yogs_defines}\atmospherics.dm"

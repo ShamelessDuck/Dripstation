@@ -485,6 +485,7 @@
 	else
 		M.visible_message(span_notice("[M] hugs [src] to make [p_them()] feel better!"), \
 					span_notice("You hug [src] to make [p_them()] feel better!"))
+/*
 		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "hug", /datum/mood_event/hug)
 		if(HAS_TRAIT(M, TRAIT_FRIENDLY))
 			var/datum/component/mood/mood = M.GetComponent(/datum/component/mood)
@@ -496,6 +497,24 @@
 
 			if(isethereal(src) && ismoth(M))
 				SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "friendly_hug", /datum/mood_event/lamphug, src)
+*/
+		if(HAS_TRAIT(src, TRAIT_PSYCHOPATHIC) || HAS_TRAIT(src, TRAIT_APATHETIC))	//dripstation edit
+			to_chat(M, span_warning("[src] have no visual reaction to your hug."))	//dripstation edit
+		else
+			if(HAS_TRAIT(src, TRAIT_BADTOUCH))	//dripstation edit
+				to_chat(M, span_warning("[src] looks visibly upset as you hug [p_them()]."))	//dripstation edit
+			else
+				SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "hug", /datum/mood_event/hug)
+				if(HAS_TRAIT(M, TRAIT_FRIENDLY))
+					var/datum/component/mood/mood = M.GetComponent(/datum/component/mood)
+					if (mood.sanity >= SANITY_GREAT)
+						new /obj/effect/temp_visual/heart(loc)
+						SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "friendly_hug", /datum/mood_event/besthug, M)
+					else if (mood.sanity >= SANITY_DISTURBED)
+						SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "friendly_hug", /datum/mood_event/betterhug, M)
+
+					if(isethereal(src) && ismoth(M))
+						SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "friendly_hug", /datum/mood_event/lamphug, src)
 		for(var/datum/brain_trauma/trauma in M.get_traumas())
 			trauma.on_hug(M, src)
 		for(var/datum/brain_trauma/trauma in get_traumas())
@@ -511,6 +530,8 @@
 			M.adjust_wet_stacks(-averagestacks)
 			to_chat(src, span_notice("The hug [M] gave you was a little wet..."))
 
+	SEND_SIGNAL(src, COMSIG_CARBON_HELP_ACT, M)	//dripstation edit
+	SEND_SIGNAL(M, COMSIG_CARBON_HELPED, src)	//dripstation edit
 	adjust_status_effects_on_shake_up()
 
 	adjustStaminaLoss(-10) //dripstation edit, now shakes and hugs recovers stamina again

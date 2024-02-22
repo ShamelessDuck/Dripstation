@@ -273,6 +273,7 @@
 	if(ismob(AM))
 		var/mob/M = AM
 
+		SEND_SIGNAL(M, COMSIG_LIVING_GET_PULLED, src)	//dripstation edit
 		log_combat(src, M, "grabbed", addition="passive grab")
 		if(!supress_message && !(iscarbon(AM) && HAS_TRAIT(src, TRAIT_STRONG_GRABBER)))
 			visible_message(span_warning("[src] has grabbed [M] passively!"))

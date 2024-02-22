@@ -336,6 +336,8 @@ structure_check() searches for nearby cultist structures required for the invoca
 				to_chat(M, span_cultlarge("\"I accept this sacrifice.\""))
 			else
 				to_chat(M, span_cultlarge("\"I accept this meager sacrifice.\""))
+		var/mob/living/carbon/carbon_user = M		//dripstation edit
+		SEND_SIGNAL(carbon_user, COMSIG_ADD_MOOD_EVENT, "geometeroffer", /datum/mood_event/sacrifice_geometer)	//dripstation edit
 
 	var/obj/item/soulstone/stone = new /obj/item/soulstone(get_turf(src))
 	if(sacrificial.mind && !sacrificial.suiciding)

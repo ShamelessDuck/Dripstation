@@ -176,6 +176,7 @@
 					screen_obj.color = "#2eeb9a"
 			break
 
+/*
 /datum/component/mood/process(delta_time) //Called on SSmood process
 	var/mob/living/owner = parent
 	if(!owner)
@@ -259,6 +260,7 @@
 			master.remove_movespeed_modifier(MOVESPEED_ID_SANITY, TRUE)
 			sanity_level = 1
 	update_mood_icon()
+*/
 
 /datum/component/mood/proc/setInsanityEffect(newval)
 	if(newval == insanity_effect)

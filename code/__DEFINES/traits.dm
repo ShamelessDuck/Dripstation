@@ -128,8 +128,6 @@
 #define TRAIT_BLIND 			"blind"
 #define TRAIT_NEARSIGHT			"nearsighted"
 
-#define HYPNOCHAIR_TRAIT		"hypnochair" //dripstation edit
-
 #define TRAIT_MONKEYLIKE		"monkeylike" //sets IsAdvancedToolUser to FALSE
 
 #define TRAIT_REDUCED_DAMAGE_SLOWDOWN "reduced_damage_slowdown"
@@ -161,7 +159,6 @@
 #define TRAIT_ALWAYS_CLEAN      "always-clean"
 
 #define TRAIT_QUICKEST_CARRY	"quickest-carry"
-#define TRAIT_QUICK_BUILD 		"quick-build" //dripstation edit
 #define TRAIT_STRONG_GRIP		"strong-grip"
 
 #define TRAIT_SHELTERED			"sheltered"
@@ -218,7 +215,6 @@
 
 #define TRAIT_SEE_REAGENTS		"see_reagents"
 #define TRAIT_STARGAZED			"stargazed"
-#define TRAIT_TRANSFORM_ACTIVE "active_transform" //dripstation edit
 
 /// The item is magically cursed
 #define CURSED_ITEM_TRAIT(item_type) "cursed_item_[item_type]"

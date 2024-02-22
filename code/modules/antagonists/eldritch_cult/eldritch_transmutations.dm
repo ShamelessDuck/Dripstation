@@ -179,6 +179,7 @@
 
 		if(LH.target?.stat) ///wow this works
 			to_chat(carbon_user,span_danger("Your patrons accepts your offer.."))
+			SEND_SIGNAL(carbon_user, COMSIG_ADD_MOOD_EVENT, "hereticoffer", /datum/mood_event/sacrifice_heretic)	//dripstation edit
 			var/mob/living/carbon/human/H = LH.target
 			H.apply_status_effect(STATUS_EFFECT_BRAZIL_PENANCE)
 			var/datum/antagonist/heretic/EC = carbon_user.mind.has_antag_datum(/datum/antagonist/heretic)
