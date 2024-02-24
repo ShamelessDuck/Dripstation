@@ -80,6 +80,9 @@
 	op_mob.real_name = "[newname]"
 
 
+//////Nuke leader//////
+/datum/antagonist/nukeop/leader
+	antag_hud_name = "syndleader"
 
 /datum/antagonist/nukeop/leader/give_alias()
 	title = pick("Boss", "Commander", "Chief", "Director", "Overlord")
@@ -204,3 +207,6 @@
 				CS.holder?.update_label()
 			balloon_alert(op, "name replaced")
 			search_id = 0
+
+/datum/antagonist/nukeop/lone
+	antag_hud_name = "loneop"

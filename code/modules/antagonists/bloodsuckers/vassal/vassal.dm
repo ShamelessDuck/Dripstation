@@ -276,7 +276,7 @@
 	show_in_antagpanel = FALSE
 	silent = TRUE
 	ui_name = FALSE
-	hud_icon = 'yogstation/icons/mob/hud.dmi'
+	hud_icon = 'modular_dripstation/icons/mob/hud.dmi'	//dripstation edit
 
 	///The revenge vassal that brought us into the fold.
 	var/datum/antagonist/vassal/revenge/revenge_vassal

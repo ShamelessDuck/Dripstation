@@ -165,14 +165,17 @@ Medical HUD! Basic mode needs suit sensors on.
 	holder.pixel_y = I.Height() - world.icon_size
 	if(HAS_TRAIT(src, TRAIT_XENO_HOST))
 		holder.icon_state = "hudxeno"
+	if(undergoing_cardiac_arrest() && stat != DEAD)	//dripstation edit
+		holder.icon_state = "huddefib"	//dripstation edit
+		return							//dripstation edit
 	else if(stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
 		if(HAS_TRAIT(src, TRAIT_FAKEDEATH))
-			holder.icon_state = "huddefib"
+			holder.icon_state = "hudflatline"	//dripstation edit
 			return
 		if(tod)
 			var/tdelta = round(world.time - timeofdeath)
 			if(tdelta < (DEFIB_TIME_LIMIT))
-				holder.icon_state = "huddefib"
+				holder.icon_state = "hudflatline"	//dripstation edit
 				return
 		holder.icon_state = "huddead"
 	else

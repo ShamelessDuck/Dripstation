@@ -76,7 +76,7 @@
 	return result.Join("<br>")
 
 /datum/antagonist/disease/get_preview_icon()
-	var/icon/icon = icon('icons/mob/hud.dmi', "virus_infected")
+	var/icon/icon = icon('modular_dripstation/icons/mob/hud.dmi', "virus_infected")	//dripstation edit
 	icon.Blend(COLOR_GREEN_GRAY, ICON_MULTIPLY)
 	icon.Scale(ANTAGONIST_PREVIEW_ICON_SIZE, ANTAGONIST_PREVIEW_ICON_SIZE)
 	return icon
@@ -109,7 +109,7 @@
 	return FALSE
 
 /datum/antagonist/disease/get_preview_icon()
-	var/icon/disease_icon = icon('icons/mob/hud.dmi', "infected")
+	var/icon/disease_icon = icon('modular_dripstation/icons/mob/hud.dmi', "infected")	//dripstation edit
 	disease_icon.Blend(COLOR_GREEN_GRAY, ICON_MULTIPLY)
 	disease_icon.Scale(ANTAGONIST_PREVIEW_ICON_SIZE, ANTAGONIST_PREVIEW_ICON_SIZE)
 	return disease_icon

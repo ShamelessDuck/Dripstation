@@ -17,7 +17,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 	var/antag_moodlet //typepath of moodlet that the mob will gain with their status
 	var/can_hijack = HIJACK_NEUTRAL //If these antags are alone on shuttle hijack happens.
 	///The antag hud's icon file
-	var/hud_icon = 'yogstation/icons/mob/antag_hud.dmi'
+	var/hud_icon = 'modular_dripstation/icons/mob/hud.dmi'	//dripstation edit
 	///Name of the antag hud we provide to this mob.
 	var/antag_hud_name
 	var/awake_stage = ANTAG_AWAKE //What stage we are of "waking up"
