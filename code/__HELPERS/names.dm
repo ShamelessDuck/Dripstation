@@ -200,6 +200,7 @@ GLOBAL_DATUM(syndicate_code_response_regex, /regex)
 	)
 
 	var/list/safety = list(1,2,3)//Tells the proc which options to remove later on.
+/*
 	var/nouns = strings(ION_FILE, "ionabstract")
 	var/objects = strings(ION_FILE, "ionobjects")
 	var/adjectives = strings(ION_FILE, "ionadjectives")
@@ -207,6 +208,16 @@ GLOBAL_DATUM(syndicate_code_response_regex, /regex)
 	var/foods = strings(ION_FILE, "ionfood")
 	var/drinks = strings(ION_FILE, "iondrinks")
 	var/list/locations = GLOB.teleportlocs.len ? GLOB.teleportlocs : drinks //if null, defaults to drinks instead.
+*/
+	var/nouns = strings(CODEWORDS_FILE, "abstract")	//dripstation edit
+	var/objects = strings(CODEWORDS_FILE, "objects")	//dripstation edit
+	var/adjectives = strings(CODEWORDS_FILE, "adjectives")	//dripstation edit
+	var/threats = strings(CODEWORDS_FILE, "threats")	//dripstation edit
+	var/crew = strings(CODEWORDS_FILE, "crew")	//dripstation edit
+	var/drinks = strings(CODEWORDS_FILE, "drinks")	//dripstation edit
+	var/numbers = strings(CODEWORDS_FILE, "numbers")	//dripstation edit
+	var/verb = strings(CODEWORDS_FILE, "verb")	//dripstation edit
+	//var/list/locations = GLOB.teleportlocs.len ? GLOB.teleportlocs : drinks //if null, defaults to drinks instead.	dripstation edit
 
 	var/list/names = list()
 	for(var/datum/data/record/t in GLOB.data_core.general)//Picks from crew manifest.
@@ -236,16 +247,16 @@ GLOBAL_DATUM(syndicate_code_response_regex, /regex)
 								new_name += pick(GLOB.last_names)
 								. += new_name
 					if(2)
-						. += pick(get_all_jobs())//Returns a job.
+						. += lowertext(pick(crew))	//dripstation edit
 				safety -= 1
 			if(2)
 				switch(rand(1,3))//Food, drinks, or things. Only selectable once.
 					if(1)
 						. += lowertext(pick(drinks))
 					if(2)
-						. += lowertext(pick(foods))
+						. += lowertext(pick(verb))	//dripstation edit
 					if(3)
-						. += lowertext(pick(locations))
+						. += lowertext(pick(numbers))	//dripstation edit
 				safety -= 2
 			if(3)
 				switch(rand(1,4))//Abstract nouns, objects, adjectives, threats. Can be selected more than once.

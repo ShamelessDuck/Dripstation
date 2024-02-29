@@ -244,6 +244,7 @@
 #include "code\__DEFINES\{yogs_defines}\telecomms.dm"
 #include "code\__DEFINES\{yogs_defines}\traits.dm"
 #include "code\__DEFINES\{yogs_defines}\wires.dm"
+#include "code\__DEFINES\{dripstation_defines}\codewords.dm"
 #include "code\__HELPERS\_extools_api.dm"
 #include "code\__HELPERS\_lists.dm"
 #include "code\__HELPERS\_planes.dm"
