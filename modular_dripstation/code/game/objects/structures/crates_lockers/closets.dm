@@ -28,19 +28,20 @@ GLOBAL_LIST_INIT(closet_cutting_types, typecacheof(list(
 		if(user.transferItemToLoc(W, drop_location())) // so we put in unlit welder too
 			return
 	else if(is_type_in_typecache(W, GLOB.closet_cutting_types) && user.a_intent == INTENT_HARM)
-		to_chat(user, span_notice("You begin cutting off electronic lock \the [src]..."))
+		to_chat(user, span_notice("You try too cut off electronic lock of \the [src]..."))
 		if(W.tool_behaviour == TOOL_WELDER)
 			if(!W.tool_start_check(user, amount=0))
 				return
-			to_chat(user, span_notice("You begin cutting \the [src] lock..."))
-			while(obj_integrity > integrity_failure)
-				if(W.use_tool(src, user, 40, volume=50))
-					if(opened)
-						return
-					user.visible_message(span_notice("[user] melts the lock of \the [src]."),
-							span_notice("You melting the lock of \the [src] with \the [W]."),
+			user.visible_message(span_notice("[user] started cutting lock of \the [src]."),
+							span_notice("You begin cutting \the [src]`s lock with \the [W]."),
 							span_italics("You hear welding."))
-					obj_integrity -= 40
+			if(W.use_tool(src, user, 40, volume=50))
+				if(opened)
+					return
+				user.visible_message(span_notice("[user] melts the lock of \the [src]."),
+						span_notice("You melting the lock of \the [src] with \the [W]."),
+						span_italics("You hear welding."))
+				obj_integrity -= 40
 		if(obj_integrity <= integrity_failure)
 			bust_open()
 	else if(W.tool_behaviour == TOOL_WELDER && can_weld_shut)
