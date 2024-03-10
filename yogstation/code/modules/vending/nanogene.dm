@@ -1,7 +1,9 @@
 /obj/machinery/vending/wallgene
 	name = "\improper NanoGene"
 	desc = "Wall-mounted Medical Equipment dispenser."
+	/* dripstation edit
 	icon = 'yogstation/icons/obj/vending.dmi'
+	*/
 	icon_state = "wallgene"
 	icon_deny = "wallgene-deny"
 	panel_type = "panel-wall"
@@ -22,7 +24,9 @@
 	default_price = 25
 	extra_price = 100
 	payment_department = ACCOUNT_MED
+	/* dripstation edit
 	light_mask = "wall-light-mask"
+	*/
 
 /obj/item/vending_refill/wallgene
 	machine_name = "NanoGene"

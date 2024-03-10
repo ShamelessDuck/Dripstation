@@ -150,7 +150,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 	if(newMessage)
 		for(var/obj/machinery/newscaster/N in GLOB.allCasters)
 			N.newsAlert()
-			N.update_appearance(UPDATE_ICON)
+			N.update_appearance(UPDATE_OVERLAYS) // Dripstation edit
 
 /datum/newscaster/feed_network/proc/deleteWanted()
 	wanted_issue.active = 0
@@ -159,7 +159,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 	wanted_issue.scannedUser = null
 	wanted_issue.img = null
 	for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
-		NEWSCASTER.update_appearance(UPDATE_ICON)
+		NEWSCASTER.update_appearance(UPDATE_OVERLAYS) // Dripstation edit
 
 /datum/newscaster/feed_network/proc/save_photo(icon/photo)
 	var/photo_file = copytext_char(md5("\icon[photo]"), 1, 6)
@@ -218,7 +218,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 
 	GLOB.allCasters += src
 	unit_no = GLOB.allCasters.len
-	update_appearance(UPDATE_ICON)
+	update_appearance(UPDATE_OVERLAYS) // Dripstation edit
 
 /obj/machinery/newscaster/Destroy()
 	GLOB.allCasters -= src
@@ -226,6 +226,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 	picture = null
 	return ..()
 
+/* //Dripstation edit
 /obj/machinery/newscaster/update_icon_state()
 	. = ..()
 	if(stat & (NOPOWER|BROKEN))
@@ -252,10 +253,11 @@ GLOBAL_LIST_EMPTY(allCasters)
 		return
 	if(alert)
 		. += "newscaster_alert"
+*/
 
 /obj/machinery/newscaster/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = TRUE, attack_dir, armour_penetration = 0)
 	. = ..()
-	update_appearance(UPDATE_ICON)
+	update_appearance(UPDATE_OVERLAYS) // Dripstation edit
 
 /obj/machinery/newscaster/ui_interact(mob/user)
 	. = ..()
@@ -737,7 +739,7 @@ GLOBAL_LIST_EMPTY(allCasters)
 				to_chat(user, span_notice("You repair [src]."))
 				obj_integrity = max_integrity
 				stat &= ~BROKEN
-				update_appearance(UPDATE_ICON)
+				update_appearance(UPDATE_OVERLAYS) // Dripstation edit
 		else
 			to_chat(user, span_notice("[src] does not need repairs."))
 	else
@@ -832,13 +834,13 @@ GLOBAL_LIST_EMPTY(allCasters)
 
 /obj/machinery/newscaster/proc/remove_alert()
 	alert = FALSE
-	update_appearance(UPDATE_ICON)
+	update_appearance(UPDATE_OVERLAYS) // Dripstation edit
 
 /obj/machinery/newscaster/proc/newsAlert(channel)
 	if(channel)
 		say("Breaking news from [channel]!")
 		alert = TRUE
-		update_appearance(UPDATE_ICON)
+		update_appearance(UPDATE_OVERLAYS) // Dripstation edit
 		addtimer(CALLBACK(src, PROC_REF(remove_alert)),alert_delay,TIMER_UNIQUE|TIMER_OVERRIDE)
 		playsound(loc, 'sound/machines/twobeep_high.ogg', 75, 1)
 	else

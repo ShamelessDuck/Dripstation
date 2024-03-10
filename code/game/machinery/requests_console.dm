@@ -69,6 +69,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 	max_integrity = 300
 	armor = list(MELEE = 70, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 0, BIO = 0, RAD = 0, FIRE = 90, ACID = 90)
 
+/* Dripstation edit
 /obj/machinery/requests_console/update_icon(updates=ALL)
 	. = ..()
 	if(stat & NOPOWER)
@@ -95,6 +96,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 			icon_state = "req_comp1"
 		else
 			icon_state = "req_comp0"
+*/
 
 /obj/machinery/requests_console/Initialize(mapload)
 	. = ..()
@@ -178,10 +180,10 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 				for (var/obj/machinery/requests_console/Console in GLOB.allConsoles)
 					if (Console.department == department)
 						Console.newmessagepriority = REQ_NO_NEW_MESSAGE
-						Console.update_appearance(UPDATE_ICON)
+						Console.update_appearance(UPDATE_OVERLAYS) // Dripstation edit
 
 				newmessagepriority = REQ_NO_NEW_MESSAGE
-				update_appearance(UPDATE_ICON)
+				update_appearance(UPDATE_OVERLAYS) // Dripstation edit
 				var/messageComposite = ""
 				for(var/msg in messages) // This puts more recent messages at the *top*, where they belong.
 					messageComposite = "<div class='block'>[msg]</div>" + messageComposite
@@ -292,7 +294,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 			if(radio_freq)
 				Radio.set_frequency(radio_freq)
 				Radio.talk_into(src,"[emergency] emergency in [department]!!",radio_freq)
-				update_appearance(UPDATE_ICON)
+				update_appearance(UPDATE_OVERLAYS) // Dripstation edit
 				addtimer(CALLBACK(src, PROC_REF(clear_emergency)), 5 MINUTES)
 
 	if(href_list["send"] && message && to_department && priority)
@@ -355,7 +357,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 
 /obj/machinery/requests_console/proc/clear_emergency()
 	emergency = null
-	update_appearance(UPDATE_ICON)
+	update_appearance(UPDATE_OVERLAYS) // Dripstation edit
 
 //from message_server.dm: Console.createmessage(data["sender"], data["send_dpt"], data["message"], data["verified"], data["stamped"], data["priority"], data["notify_freq"])
 /obj/machinery/requests_console/proc/createmessage(source, source_department, message, msgVerified, msgStamped, priority, radio_freq)
@@ -378,14 +380,14 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 		if(REQ_NORMAL_MESSAGE_PRIORITY)
 			if(newmessagepriority < REQ_NORMAL_MESSAGE_PRIORITY)
 				newmessagepriority = REQ_NORMAL_MESSAGE_PRIORITY
-				update_appearance(UPDATE_ICON)
+				update_appearance(UPDATE_OVERLAYS) // Dripstation edit
 
 		if(REQ_HIGH_MESSAGE_PRIORITY)
 			header = "[span_bad("High Priority")]<BR>[header]"
 			alert = "PRIORITY Alert from [source][authentic]"
 			if(newmessagepriority < REQ_HIGH_MESSAGE_PRIORITY)
 				newmessagepriority = REQ_HIGH_MESSAGE_PRIORITY
-				update_appearance(UPDATE_ICON)
+				update_appearance(UPDATE_OVERLAYS) // Dripstation edit
 
 		if(REQ_EXTREME_MESSAGE_PRIORITY)
 			header = "[span_bad("!!!Extreme Priority!!!")]<BR>[header]"
@@ -393,7 +395,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 			silenced = FALSE
 			if(newmessagepriority < REQ_EXTREME_MESSAGE_PRIORITY)
 				newmessagepriority = REQ_EXTREME_MESSAGE_PRIORITY
-				update_appearance(UPDATE_ICON)
+				update_appearance(UPDATE_OVERLAYS) // Dripstation edit
 
 	messages += "[header][sending]"
 
@@ -413,7 +415,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 		else
 			to_chat(user, span_notice("You open the maintenance panel."))
 			open = TRUE
-		update_appearance(UPDATE_ICON)
+		update_appearance(UPDATE_OVERLAYS) // Dripstation edit
 		return
 	if(O.tool_behaviour == TOOL_SCREWDRIVER)
 		if(open)
@@ -422,7 +424,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 				to_chat(user, span_notice("You modify the wiring."))
 			else
 				to_chat(user, span_notice("You reset the wiring."))
-			update_appearance(UPDATE_ICON)
+			update_appearance(UPDATE_OVERLAYS) // Dripstation edit
 		else
 			to_chat(user, span_warning("You must open the maintenance panel first!"))
 		return

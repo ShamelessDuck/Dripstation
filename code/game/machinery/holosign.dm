@@ -14,8 +14,9 @@
 		lit = FALSE
 	else
 		lit = !lit
-	update_appearance(UPDATE_ICON)
+	update_appearance(UPDATE_OVERLAYS) //Dripstation edit
 
+/* //Dripstation edit
 /obj/machinery/holosign/update_icon(updates=ALL)
 	. = ..()
 	if(!lit)
@@ -24,6 +25,7 @@
 	else
 		icon_state = on_icon
 		set_light(1, 0.5, l_color = COLOR_BLUE_LIGHT)
+*/
 
 /obj/machinery/holosign/power_change()
 	if(!is_operational())

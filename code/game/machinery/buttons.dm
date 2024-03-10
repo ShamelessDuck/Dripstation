@@ -48,7 +48,10 @@
 /obj/machinery/button/update_icon_state()
 	. = ..()
 	if(panel_open)
+		/*
 		icon_state = "button-open"
+		*/
+		icon_state = panel_icon //Dripstation edit
 	else
 		if(stat & (NOPOWER|BROKEN))
 			icon_state = "[skin]-p"

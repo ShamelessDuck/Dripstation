@@ -500,15 +500,21 @@
 	density = FALSE
 	clockwork = TRUE //it'd look weird
 
+/* //Dripstation edit
 /obj/machinery/computer/shuttle/pod/Initialize(mapload, obj/item/circuitboard/C)
 	AddElement(/datum/element/update_icon_blocker)
 	return ..()
+*/
 
 /obj/machinery/computer/shuttle/pod/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(obj_flags & EMAGGED)
 		return FALSE
 	ENABLE_BITFIELD(obj_flags, EMAGGED)
 	to_chat(user, span_warning("You fry the pod's alert level checking system."))
+	//DRIPSTATION EDIT START
+	icon_screen = "wallconsole_emagged"
+	update_appearance(UPDATE_OVERLAYS)
+	//DRIPSTATION EDIT END
 
 /obj/machinery/computer/shuttle/pod/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	. = ..()

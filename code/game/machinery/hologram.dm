@@ -398,6 +398,7 @@ obj/machinery/holopad/secure/Initialize(mapload)
 			else
 				playsound(src, 'sound/machines/twobeep.ogg', 100)	//bring, bring!
 				ringing = TRUE
+				set_light(l_range = 1.4, l_color = LIGHT_COLOR_ELECTRIC_CYAN, l_on = TRUE) //dripstation edit
 
 	update_appearance(UPDATE_ICON)
 
@@ -476,8 +477,10 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		icon_state = "holopad_ringing"
 	else if(total_users || replay_mode)
 		icon_state = "holopad1"
+		set_light(l_range = 2.5, l_color = LIGHT_COLOR_ELECTRIC_CYAN) //dripstation edit
 	else
 		icon_state = "holopad0"
+		set_light(0)  //dripstation edit
 
 /obj/machinery/holopad/proc/set_holo(mob/living/user, obj/effect/overlay/holo_pad_hologram/h)
 	LAZYSET(masters, user, h)

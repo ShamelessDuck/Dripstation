@@ -44,9 +44,11 @@
 		. += "defib"
 		if(defib.powered)
 			. += defib.safety ? "online" : "emagged"
+			. += emissive_appearance(icon, defib.safety ? "online" : "emagged", src) //dripstation edit
 			var/ratio = defib.cell.charge / defib.cell.maxcharge
 			ratio = CEILING(ratio * 4, 1) * 25
 			. += "charge[ratio]"
+			. += emissive_appearance(icon, "charge[ratio]", src) //dripstation edit
 		if(clamps_locked)
 			. += "clamps"
 

@@ -48,7 +48,10 @@
 	if(!clockwork)
 		clockwork = TRUE
 		icon_screen = "ratvar[rand(1, 4)]"
+		/* //Dripstation edit
 		icon_keyboard = "ratvar_key[rand(1, 6)]"
+		*/
+		icon_keyboard = "ratvar_key[rand(1, 2)]" //Dripstation edit
 		icon_state = "ratvarcomputer[rand(1, 4)]"
 		update_appearance()
 
@@ -96,7 +99,7 @@
 			. += "[icon_keyboard]_off"
 		else
 			. += icon_keyboard
-
+			. += emissive_appearance(icon, icon_keyboard, src) //Dripstation edit
 	if(stat & BROKEN)
 		. += mutable_appearance(icon, "[icon_state]_broken")
 		return // If we don't do this broken computers glow in the dark.

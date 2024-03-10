@@ -84,6 +84,7 @@
 /obj/machinery/seed_extractor/attackby(obj/item/O, mob/user, params)
 
 	if(default_deconstruction_screwdriver(user, "sextractor_open", "sextractor", O))
+		update_appearance(UPDATE_OVERLAYS) //Dripstation edit
 		return
 
 	if(default_pry_open(O))

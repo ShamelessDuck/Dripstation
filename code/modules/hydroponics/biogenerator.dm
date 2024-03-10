@@ -31,7 +31,7 @@
 	..()
 	if(A == beaker)
 		beaker = null
-		update_appearance(UPDATE_ICON)
+		update_appearance(UPDATE_OVERLAYS) //Dripstation edit
 
 /obj/machinery/biogenerator/contents_explosion(severity, target)
 	..()
@@ -63,8 +63,9 @@
 		. += span_notice("The status display reads: Productivity at <b>[productivity*100]%</b>.<br>Matter consumption reduced by <b>[(efficiency*25)-25]</b>%.<br>Machine can hold up to <b>[max_items]</b> pieces of produce.")
 
 /obj/machinery/biogenerator/on_reagent_change(changetype)			//When the reagents change, change the icon as well.
-	update_appearance(UPDATE_ICON)
+	update_appearance(UPDATE_OVERLAYS) //Dripstation edit
 
+/* //Dripstation edit
 /obj/machinery/biogenerator/update_icon_state()
 	. = ..()
 	if(panel_open)
@@ -75,6 +76,7 @@
 		icon_state = "biogen-stand"
 	else
 		icon_state = "biogen-work"
+*/
 
 /obj/machinery/biogenerator/attackby(obj/item/O, mob/user, params)
 	if(user.a_intent == INTENT_HARM)
@@ -84,12 +86,12 @@
 		to_chat(user, span_warning("The biogenerator is currently processing."))
 		return
 
-	if(default_deconstruction_screwdriver(user, "biogen-empty-o", "biogen-empty", O))
+	if(default_deconstruction_screwdriver(user, icon_state, icon_state, O))  //Dripstation edit
 		if(beaker)
 			var/obj/item/reagent_containers/glass/B = beaker
 			B.forceMove(drop_location())
 			beaker = null
-		update_appearance(UPDATE_ICON)
+		update_appearance(UPDATE_OVERLAYS) //Dripstation edit
 		return
 
 	if(default_deconstruction_crowbar(O))
@@ -105,7 +107,7 @@
 					return
 				beaker = O
 				to_chat(user, span_notice("You add the container to the machine."))
-				update_appearance(UPDATE_ICON)
+				update_appearance(UPDATE_OVERLAYS) //Dripstation edit
 		else
 			to_chat(user, span_warning("Close the maintenance panel first."))
 		return
@@ -185,12 +187,12 @@
 		qdel(I)
 	if(S)
 		processing = TRUE
-		update_appearance(UPDATE_ICON)
+		update_appearance(UPDATE_OVERLAYS) //Dripstation edit
 		playsound(loc, 'sound/machines/blender.ogg', 50, TRUE)
 		use_power(S * 30)
 		sleep(S + 15 / productivity)
 		processing = FALSE
-		update_appearance(UPDATE_ICON)
+		update_appearance(UPDATE_OVERLAYS) //Dripstation edit
 
 /obj/machinery/biogenerator/proc/check_cost(list/materials, multiplier = 1, remove_points = TRUE)
 	if(materials.len != 1 || materials[1] != getmaterialref(/datum/material/biomass))
@@ -200,7 +202,7 @@
 	else
 		if(remove_points)
 			points -= materials[getmaterialref(/datum/material/biomass)]*multiplier/efficiency
-		update_appearance(UPDATE_ICON)
+		update_appearance(UPDATE_OVERLAYS) //Dripstation edit
 		return TRUE
 
 /obj/machinery/biogenerator/proc/check_container_volume(list/reagents, multiplier = 1)
@@ -241,7 +243,7 @@
 				beaker.reagents.add_reagent(R, D.make_reagents[R])
 			. = 1
 			--i
-	update_appearance(UPDATE_ICON)
+	update_appearance(UPDATE_OVERLAYS) //Dripstation edit
 	return .
 
 /obj/machinery/biogenerator/proc/detach(mob/living/user)
@@ -251,7 +253,7 @@
 		else
 			beaker.drop_location(get_turf(src))
 		beaker = null
-		update_appearance(UPDATE_ICON)
+		update_appearance(UPDATE_OVERLAYS) //Dripstation edit
 
 /obj/machinery/biogenerator/ui_status(mob/user)
 	if(stat & BROKEN || panel_open)

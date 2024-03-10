@@ -101,11 +101,18 @@
 
 	if(cpu.enabled)
 		. += cpu.active_program?.program_icon_state || screen_icon_state_menu
+		//Dripstation edit start
+		. += emissive_appearance(icon, "[cpu?.active_program?.program_icon_state || screen_icon_state_menu]", src) 
+		light_color = cpu.active_program?.program_color 
+		update_light()
+		//Dripstation edit end
 	else if(!(stat & NOPOWER))
 		. += screen_icon_screensaver
+		. += emissive_appearance(icon, screen_icon_screensaver, src) //Dripstation edit
 
 	if(cpu.obj_integrity <= cpu.integrity_failure)
 		. += "bsod"
+		. += emissive_appearance(icon, "bsod", src) //Dripstation edit
 		. += "broken"
 	return .
 

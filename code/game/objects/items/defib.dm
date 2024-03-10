@@ -68,15 +68,18 @@
 		. += "[initial(icon_state)]-paddles"
 	if(powered)
 		. += "[initial(icon_state)]-powered"
+		. += emissive_appearance(icon, "[initial(icon_state)]-powered", src) //Dripstation edit
 	if(powered) //so it doesn't show charge if it's unpowered
 		if(!QDELETED(cell))
 			var/ratio = cell.charge / cell.maxcharge
 			ratio = CEILING(ratio*4, 1) * 25
 			. += "[initial(icon_state)]-charge[ratio]"
+			. += emissive_appearance(icon, "[initial(icon_state)]-charge[ratio]", src) //Dripstation edit
 	if(!cell)
 		. += "[initial(icon_state)]-nocell"
 	if(!safety)
 		. += "[initial(icon_state)]-emagged"
+		. += emissive_appearance(icon, "[initial(icon_state)]-emagged", src) //Dripstation edit
 
 /obj/item/defibrillator/CheckParts(list/parts_list)
 	..()

@@ -55,6 +55,7 @@
 			min_wchance = 0
 			min_wrate = 0
 
+/* Dripstation edit
 /obj/machinery/plantgenes/update_icon_state()
 	. = ..()
 	if((stat & (BROKEN|NOPOWER)))
@@ -70,6 +71,7 @@
 		. += "dnamod-disk"
 	if(panel_open)
 		. += "dnamod-open"
+*/
 
 /obj/machinery/plantgenes/attackby(obj/item/I, mob/user, params)
 	if(default_deconstruction_screwdriver(user, "dnamod", "dnamod", I))

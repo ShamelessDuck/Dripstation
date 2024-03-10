@@ -28,6 +28,10 @@
 		return FALSE
 	obj_flags |= EMAGGED
 	req_access = list() // Emagging lets anyone reclaim all the items.
+	//Dripstation edit start
+	screen_icon = "emagged_general"
+	update_appearance()
+	//Dripstation edit end
 	return TRUE
 
 /obj/machinery/gulag_item_reclaimer/attackby(obj/item/I, mob/user)

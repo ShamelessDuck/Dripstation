@@ -752,7 +752,10 @@
 		for(var/heading in list(NORTH,SOUTH,EAST,WEST))
 			if(!(unres_sides & heading))
 				continue
+			/* Dripstation edit
 			var/mutable_appearance/floorlight = mutable_appearance('icons/obj/doors/airlocks/station/overlays.dmi', "unres_[heading]", FLOAT_LAYER, src, ABOVE_LIGHTING_PLANE)
+			*/
+			var/mutable_appearance/floorlight = mutable_appearance('modular_dripstation/icons/obj/doors/airlocks/station/overlays.dmi', "unres_[heading]", FLOAT_LAYER, src, ABOVE_LIGHTING_PLANE)
 			switch (heading)
 				if (NORTH)
 					floorlight.pixel_x = 0
@@ -766,6 +769,10 @@
 				if (WEST)
 					floorlight.pixel_x = -32
 					floorlight.pixel_y = 0
+			// DRIPSTATION ADDITION START
+			set_light(MINIMUM_USEFUL_LIGHT_RANGE, l_power = 1)
+			set_light_color(LIGHT_COLOR_ELECTRIC_GREEN)
+			// DRIPSTATION ADDITION END
 			. += floorlight
 
 /proc/get_airlock_overlay(icon_state, icon_file)

@@ -1,7 +1,9 @@
 /obj/machinery/vending/gifts
 	name = "\improper Gift Vendor"
 	desc = "A vending machine for the gift shop."
+	/* dripstation edit
 	icon = 'yogstation/icons/obj/vending.dmi'
+	*/
 	icon_state = "gifts"
 	icon_deny = "gifts-deny"
 	panel_type = "panel-gift"
@@ -93,4 +95,6 @@
 	default_price = 50
 	extra_price = 75
 	payment_department = ACCOUNT_SRV
+	/* dripstation edit
 	light_mask = "gifts-light-mask"
+	*/
