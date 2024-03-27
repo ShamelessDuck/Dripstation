@@ -31,7 +31,7 @@
 			. += mutable_appearance(icon, "[base_icon_state]_alert")
 			. += emissive_appearance(icon, "[base_icon_state]_alert", src, alpha = src.alpha,)
 
-	var/hp_percent = obj_integrity * 100 / max_integrity
+	var/hp_percent = atom_integrity  * 100 / max_integrity
 	switch(hp_percent)
 		if(75 to 100)
 			return

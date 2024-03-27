@@ -11,7 +11,7 @@ GLOBAL_DATUM(cargo_ripley, /obj/mecha/working/ripley/cargo)
 	step_in = 1.3
 	max_equip = 5 //modified exoskeleton power drive
 	max_integrity = 150 //Lesser health then have normal RIPLEY mech, so it's harder to use as a weapon.
-	obj_integrity = 75 //Starting at low health
+	atom_integrity = 75 //Starting at low health
 	internals_req_access = list(ACCESS_CARGO, ACCESS_MECH_SCIENCE) //Giving access to cargotech & robo
 
 /obj/mecha/working/ripley/cargo/examine(mob/user)
