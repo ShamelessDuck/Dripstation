@@ -5,6 +5,7 @@
 	light_power = 1
 
 /obj/machinery/computer/prisoner
+	icon_screen = "cell_monitor"
 	light_color = LIGHT_COLOR_INTENSE_RED
 
 /obj/machinery/computer/secure_data
@@ -38,9 +39,9 @@
 	light_color = LIGHT_COLOR_PINK
 
 /obj/machinery/computer/security/qm
-	icon_screen = "cameras_civil"
+	icon_screen = "cargocameras"
 	icon_keyboard = "power_key"
-	light_color = COLOR_SILVER
+	light_color = COLOR_TANGERINE_YELLOW
 
 /obj/machinery/computer/camera_advanced/syndie
 	icon_screen = "syndicam"
@@ -62,9 +63,11 @@
 
 /obj/machinery/computer/bounty
 	light_color = COLOR_TANGERINE_YELLOW
+	icon_keyboard = "req_key"
 
 /obj/machinery/computer/cargo
 	light_color = COLOR_TANGERINE_YELLOW
+	icon_keyboard = "req_key"
 
 /obj/machinery/computer/piratepad_control
 	light_color = LIGHT_COLOR_ELECTRIC_GREEN
@@ -130,3 +133,40 @@
 
 	. += mutable_appearance(icon, icon_screen)
 	. += emissive_appearance(icon, icon_screen, src)
+
+/obj/machinery/computer/arcade/orion_trail
+	icon_screen = "orion"
+
+/obj/machinery/computer/arcade/battle
+	icon_state = "battle_arcade"
+	icon_screen = "battle"
+
+/obj/machinery/computer/security/research
+	icon_screen = "researchcameras"
+	light_color = LIGHT_COLOR_PINK
+
+/obj/machinery/computer/camera_advanced/shuttle_docker
+	icon_screen = "navigation"
+	icon_keyboard = "blue_key"
+	light_color = LIGHT_COLOR_BLUE
+
+/obj/machinery/computer/camera_advanced/shuttle_creator
+	icon_screen = "navigation"
+	icon_keyboard = "blue_key"
+	light_color = LIGHT_COLOR_BLUE
+
+/obj/machinery/computer/cargo/express
+	icon_keyboard = "blue_key"
+	light_color = LIGHT_COLOR_DARK_BLUE
+
+/obj/machinery/computer/reactor/pump/reactor_output
+	icon_screen = "oldcomp_library"
+	light_color = LIGHT_COLOR_GREEN
+
+/obj/machinery/computer/reactor/pump/reactor_input
+	icon_screen = "oldcomp_library"
+	light_color = LIGHT_COLOR_GREEN
+
+/obj/machinery/computer/operating
+	icon_screen = "operating"
+

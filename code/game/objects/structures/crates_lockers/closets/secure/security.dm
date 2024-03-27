@@ -303,7 +303,9 @@
 /obj/structure/closet/secure_closet/physician
 	name = "\improper brig physician's cabinet"
 	req_access = list(ACCESS_BRIG_PHYS)
+	/* //Dripstation edit
 	icon = 'yogstation/icons/obj/closet.dmi'
+	*/
 	icon_state = "physician"
 	resistance_flags = FLAMMABLE
 	max_integrity = 70

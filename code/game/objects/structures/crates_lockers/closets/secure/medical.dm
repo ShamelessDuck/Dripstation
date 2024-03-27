@@ -75,7 +75,9 @@
 /obj/structure/closet/secure_closet/paramedic
 	name = "paramedical closet"
 	desc = "It's a secure storage unit for paramedical supplies."
+	/* //Dripstation edit
 	icon = 'yogstation/icons/obj/closet.dmi'
+	*/
 	icon_state = "paramed"
 	req_access = list(ACCESS_PARAMEDIC)
 
@@ -116,7 +118,9 @@
 /obj/structure/closet/secure_closet/mmedical
 	name = "mining medic's locker"
 	req_access = list(ACCESS_MEDICAL)
+	/* //Dripstation edit
 	icon = 'yogstation/icons/obj/closet.dmi'
+	*/
 	icon_state = "medic"
 
 /obj/structure/closet/secure_closet/mmedical/PopulateContents()

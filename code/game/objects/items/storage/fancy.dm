@@ -394,10 +394,12 @@
 	for(var/i in 1 to 10)
 		new /obj/item/rollingpaper(src)
 
+/* //Dripstation edit
 /obj/item/storage/fancy/rollingpapers/update_overlays()
 	. = ..()
 	if(!contents.len)
 		. += "[icon_state]_empty"
+*/
 
 /////////////
 //CIGAR BOX//

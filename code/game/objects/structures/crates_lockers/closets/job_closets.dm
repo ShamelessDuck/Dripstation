@@ -310,7 +310,9 @@
 
 /obj/structure/closet/wardrobe/tcomms
 	name = "network admin wardrobe"
+	/* //Dripstation edit
 	icon = 'yogstation/icons/obj/closet.dmi'
+	*/
 	icon_state = "sigtech"
 	icon_door = "sigtech"
 

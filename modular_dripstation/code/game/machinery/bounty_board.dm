@@ -1,6 +1,6 @@
 /obj/item/wallframe/bounty_board
 	icon = 'modular_dripstation/icons/obj/frame.dmi'
-	icon_state = "bounty_kiost"
+	icon_state = "bounty_kiosk"
 
 /obj/machinery/bounty_board
 	icon = 'modular_dripstation/icons/obj/terminals.dmi'

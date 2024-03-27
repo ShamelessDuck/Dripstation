@@ -45,7 +45,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		damtype = BURN
 		force = 3
 		hitsound = 'sound/items/welder.ogg'
+		/*
 		item_state = "cigon"
+		*/		
+		item_state = "match_lit" //Dripstation edit
+		set_light_on(lit) //Dripstation edit
 		name = "lit [initial(name)]"
 		desc = "A [initial(name)]. This one is lit."
 		attack_verb = list("burnt","singed")
@@ -54,15 +58,21 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/match/proc/matchburnout()
 	if(lit)
+		playsound(src, 'modular_dripstation/sound/item/cigs_lighters/cig_snuff.ogg', 50, 1) //Dripstation edit
 		lit = FALSE
 		burnt = TRUE
 		damtype = "brute"
 		force = initial(force)
 		icon_state = "match_burnt"
+		/*
 		item_state = "cigoff"
+		*/
+		item_state = "match_burnt" //Dripstation edit
+		set_light_on(FALSE) //Dripstation edit
 		name = "burnt [initial(name)]"
 		desc = "A [initial(name)]. This one has seen better days."
 		attack_verb = list("flicked")
+		update_appearance(UPDATE_ICON)  //Dripstation edit
 		STOP_PROCESSING(SSobj, src)
 
 /obj/item/match/extinguish()
@@ -189,6 +199,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/exploded = FALSE
 	var/face_explodable = FALSE
 	lit = TRUE
+	set_light_on(lit) //Dripstation edit
+	playsound(src, 'sound/items/lighter/light.ogg', 50, 2)  //Dripstation edit
 	name = "lit [name]"
 	attack_verb = list("burnt", "singed")
 	hitsound = 'sound/items/welder.ogg'
@@ -247,6 +259,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	STOP_PROCESSING(SSobj, src)
 	ENABLE_BITFIELD(reagents.flags, NO_REACT)
 	lit = FALSE
+	playsound(src, 'modular_dripstation/sound/item/cigs_lighters/cig_snuff.ogg', 50, 1) //Dripstation edit
+	set_light_on(lit) //Dripstation edit
 	if(ismob(loc))
 		var/mob/living/M = loc
 		to_chat(M, span_notice("Your [name] goes out."))
@@ -285,6 +299,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/cigarette/attack_self(mob/user)
 	if(lit)
 		user.visible_message(span_notice("[user] calmly drops and treads on \the [src], putting it out instantly."))
+		playsound(src, 'modular_dripstation/sound/item/cigs_lighters/cig_snuff.ogg', 50, 1) //Dripstation edit
 		new type_butt(user.loc)
 		new /obj/effect/decal/cleanable/ash(user.loc)
 		qdel(src)
@@ -304,7 +319,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			cig.attackby(src, user)
 		else
 			cig.light(span_notice("[user] holds the [name] out for [M], and lights [M.p_their()] [cig.name]."))
+			/* //Dripstation edit
 			playsound(src, 'sound/items/lighter/light.ogg', 50, 2)
+			*/
 	else
 		return ..()
 
@@ -478,6 +495,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			var/mob/living/M = loc
 			to_chat(M, span_notice("Your [name] goes out."))
 			lit = 0
+			set_light_on(lit) //Dripstation edit
 			icon_state = icon_off
 			item_state = icon_off
 			M.update_inv_wear_mask()
@@ -521,6 +539,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(lit)
 		user.visible_message(span_notice("[user] puts out [src]."), span_notice("You put out [src]."))
 		lit = 0
+
 		icon_state = icon_off
 		item_state = icon_off
 		STOP_PROCESSING(SSobj, src)
@@ -574,11 +593,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	light_color = LIGHT_COLOR_FIRE
 	grind_results = list(/datum/reagent/iron = 1, /datum/reagent/fuel = 5, /datum/reagent/oil = 5)
 
+/*
 /obj/item/lighter/Initialize(mapload)
 	. = ..()
 	if(!overlay_state)
 		overlay_state = pick(overlay_list)
 	update_appearance(UPDATE_ICON)
+*/
 
 /obj/item/lighter/cyborg_unequip(mob/user)
 	if(!lit)
@@ -594,16 +615,20 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		user.visible_message(span_suicide("[user] begins whacking [user.p_them()]self with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 		return BRUTELOSS
 
+/*
 /obj/item/lighter/update_overlays()
 	. = ..()
 	var/mutable_appearance/lighter_overlay = mutable_appearance(icon,"lighter_overlay_[overlay_state][lit ? "-on" : ""]")
 	icon_state = "[initial(icon_state)][lit ? "-on" : ""]"
 	. += lighter_overlay
+*/
 
 /obj/item/lighter/ignition_effect(atom/A, mob/user)
 	if(is_hot())
 		. = span_rose("With a single flick of [user.p_their()] wrist, [user] smoothly lights [A] with [src]. Damn [user.p_theyre()] cool.")
+		/* //Dripstation edit
 		playsound(src, 'sound/items/lighter/light.ogg', 50, 2)
+		*/
 
 /obj/item/lighter/proc/set_lit(new_lit)
 	if(lit == new_lit)
@@ -677,10 +702,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		else
 			if(fancy)
 				cig.light(span_rose("[user] whips the [name] out and holds it for [M]. [user.p_their(TRUE)] arm is as steady as the unflickering flame [user.p_they()] light[user.p_s()] \the [cig] with."))
+				/* //Dripstation edit
 				playsound(src, 'sound/items/lighter/light.ogg', 50, 2)
+				*/
 			else
 				cig.light(span_notice("[user] holds the [name] out for [M], and lights [M.p_their()] [cig.name]."))
+				/* //Dripstation edit
 				playsound(src, 'sound/items/lighter/light.ogg', 50, 2)
+				*/
 	else
 		..()
 
@@ -702,6 +731,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		"matte",
 		"zoppo" //u cant stoppo th zoppo
 		)
+/*
 	var/lighter_color
 	var/list/color_list = list( //Same 16 color selection as electronic assemblies
 		COLOR_ASSEMBLY_BLACK,
@@ -734,6 +764,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "[initial(icon_state)][lit ? "-on" : ""]"
 	lighter_overlay.color = lighter_color
 	. += lighter_overlay
+*/
 
 /obj/item/lighter/greyscale/ignition_effect(atom/A, mob/user)
 	if(is_hot())

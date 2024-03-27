@@ -52,7 +52,7 @@
 	program_color = LIGHT_COLOR_GREEN
 
 /datum/computer_file/program/alarm_monitor
-	program_color = COLOR_ENGINEERING_ORANGE
+	program_color = LIGHT_COLOR_CYAN
 
 /datum/computer_file/program/atmosscan
 	program_color = COLOR_ENGINEERING_ORANGE
@@ -65,3 +65,12 @@
 
 /datum/computer_file/program/crew_manifest
 	program_color = LIGHT_COLOR_BLUE
+
+/datum/computer_file/program/aidiag
+	program_icon_state = "ai-fixer-empty"
+	program_color = LIGHT_COLOR_PINK
+
+/datum/computer_file/program/secureye/mining
+	program_icon_state = "cargocameras"
+	program_color = COLOR_TANGERINE_YELLOW
+

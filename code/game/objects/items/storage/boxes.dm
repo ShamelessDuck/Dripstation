@@ -763,9 +763,11 @@
 /obj/item/storage/box/matches/PopulateContents()
 	SEND_SIGNAL(src, COMSIG_TRY_STORAGE_FILL_TYPE, /obj/item/match)
 
+/* //Dripstation edit
 /obj/item/storage/box/matches/attackby(obj/item/match/W as obj, mob/user as mob, params)
 	if(istype(W, /obj/item/match))
 		W.matchignite()
+*/
 
 /obj/item/storage/box/lights
 	name = "box of replacement bulbs"

@@ -294,6 +294,7 @@
 		return
 
 	var/obj/item/bot_assembly/medbot/A = new
+	/*
 	if(istype(src, /obj/item/storage/firstaid/fire))
 		A.skin = "ointment"
 	else if(istype(src, /obj/item/storage/firstaid/toxin))
@@ -302,10 +303,18 @@
 		A.skin = "o2"
 	else if(istype(src, /obj/item/storage/firstaid/brute))
 		A.skin = "brute"
+	*/
 	user.put_in_hands(A)
 	to_chat(user, span_notice("You add [S] to [src]."))
 	A.robot_arm = S.type
+	/*
 	A.firstaid = type
+	*/
+//Dripstation edit start
+	A.firstaid_item = type
+	A.skin = src.icon_state
+	A.update_appearance(UPDATE_OVERLAYS)
+//Dripstation edit end
 	qdel(S)
 	qdel(src)
 

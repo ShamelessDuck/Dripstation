@@ -96,6 +96,7 @@
 	else
 		return PROCESS_KILL
 
+/* //Dripstation edit
 /obj/item/stock_parts/cell/update_overlays()
 	. = ..()
 	cut_overlays()
@@ -107,6 +108,7 @@
 		. += "cell-o2"
 	else
 		. += "cell-o1"
+*/
 
 /obj/item/stock_parts/cell/proc/percent()		// return % charge of cell
 	return 100*charge/maxcharge

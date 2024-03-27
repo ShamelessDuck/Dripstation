@@ -260,8 +260,9 @@
 	created_name = "Medibot" //To preserve the name if it's a unique medbot I guess
 	var/skin = null //Same as medbot, set to tox or ointment for the respective kits.
 	var/healthanalyzer = /obj/item/healthanalyzer
-	var/firstaid = /obj/item/storage/firstaid
+	//var/firstaid = /obj/item/storage/firstaid //Dripstation removal
 
+/* //Dripstation edit
 /obj/item/bot_assembly/medbot/Initialize(mapload)
 	. = ..()
 	spawn(5)
@@ -294,7 +295,7 @@
 				S.robot_arm = robot_arm
 				S.healthanalyzer = healthanalyzer
 				qdel(src)
-
+*/
 
 //Honkbot Assembly
 /obj/item/bot_assembly/honkbot

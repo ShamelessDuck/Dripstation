@@ -36,7 +36,7 @@
 
 	var/obj/item/reagent_containers/glass/reagent_glass = null //Can be set to draw from this for reagents.
 	var/healthanalyzer = /obj/item/healthanalyzer
-	var/firstaid = /obj/item/storage/firstaid
+	//var/firstaid = /obj/item/storage/firstaid //Dripstation removal
 	var/skin = null //Set to "tox", "ointment" or "o2" for the other two firstaid kits.
 	var/mob/living/carbon/patient = null
 	var/mob/living/carbon/oldpatient = null
@@ -92,6 +92,7 @@
 	treatment_tox_avoid = null
 	treatment_tox = /datum/reagent/toxin/sodium_thiopental
 
+/*
 /mob/living/simple_animal/bot/medbot/update_icon_state()
 	. = ..()
 	if(!on)
@@ -121,6 +122,7 @@
 	qdel(J)
 	skin = new_skin
 	update_appearance(UPDATE_ICON)
+*/
 
 /mob/living/simple_animal/bot/medbot/update_mobility()
 	. = ..()
@@ -688,7 +690,7 @@
 	visible_message(span_boldannounce("[src] blows apart!"))
 	var/atom/Tsec = drop_location()
 
-	drop_part(firstaid, Tsec)
+	drop_part(firstaid_item, Tsec) //Dripstation edit
 	new /obj/item/assembly/prox_sensor(Tsec)
 	drop_part(healthanalyzer, Tsec)
 

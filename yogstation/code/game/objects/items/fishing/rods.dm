@@ -123,7 +123,10 @@
 
 /obj/item/fishingrod/proc/do_fishing_alert(atom/A)
 	playsound(A.loc, 'sound/machines/chime.ogg', 50, FALSE, -5)
+	/* //Dripstation edit
 	var/image/I = image('icons/obj/closet.dmi', A, "cardboard_special", A.layer+1)
+	*/
+	var/image/I = image('modular_dripstation/icons/obj/closet.dmi', A, "cardboard_special", A.layer+1)
 	flick_overlay_view(I, A, 8)
 	I.alpha = 0
 	animate(I, pixel_z = 32, alpha = 255, time = 2, easing = ELASTIC_EASING)
