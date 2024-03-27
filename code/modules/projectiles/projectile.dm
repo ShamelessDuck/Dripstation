@@ -67,7 +67,8 @@
 	var/hitscan = FALSE		//Whether this is hitscan. If it is, speed is basically ignored.
 	var/list/beam_segments	//assoc list of datum/point or datum/point/vector, start = end. Used for hitscan effect generation.
 	var/datum/point/beam_index
-	var/turf/hitscan_last	//last turf touched during hitscanning.
+	/// The ending/last touched turf during hitscanning.
+	var/turf/hitscan_last
 	var/tracer_type
 	var/muzzle_type
 	var/impact_type
@@ -171,6 +172,11 @@
 	. = ..()
 	impacted = list()
 	decayedRange = range
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/projectile/proc/Range()
 	range--
@@ -599,10 +605,9 @@
 				pixel_x = trajectory.return_px()
 				pixel_y = trajectory.return_py()
 			forcemoved = TRUE
-			hitscan_last = loc
 		else if(T != loc)
 			step_towards(src, T)
-			hitscan_last = loc
+		hitscan_last = T
 	if(!hitscanning && !forcemoved)
 		pixel_x = trajectory.return_px() - trajectory.mpx * trajectory_multiplier * SSprojectiles.global_iterations_per_move
 		pixel_y = trajectory.return_py() - trajectory.mpy * trajectory_multiplier * SSprojectiles.global_iterations_per_move
@@ -722,8 +727,7 @@
 		angle = ATAN2(y - oy, x - ox)
 	return list(angle, p_x, p_y)
 
-/obj/projectile/Crossed(atom/movable/AM) //A mob moving on a tile with a projectile is hit by it.
-	. = ..()
+/obj/projectile/proc/on_entered(datum/source, atom/movable/AM, ...) //A mob moving on a tile with a projectile is hit by it.
 	if(isliving(AM) && !(pass_flags & PASSMOB))
 		var/mob/living/L = AM
 		if(can_hit_target(L, impacted, (AM == original)))

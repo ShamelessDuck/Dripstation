@@ -49,7 +49,7 @@
 	. = ..()
 	if(panel_open)
 		/*
-		icon_state = "button-open"
+		icon_state = "doorctrl-open"
 		*/
 		icon_state = panel_icon //Dripstation edit
 	else
@@ -78,7 +78,7 @@
 /obj/machinery/button/attackby(obj/item/W, mob/user, params)
 	if(W.tool_behaviour == TOOL_SCREWDRIVER)
 		if(panel_open || allowed(user))
-			default_deconstruction_screwdriver(user, "button-open", "[skin]",W)
+			default_deconstruction_screwdriver(user, "doorctrl-open", "[skin]",W)
 			update_appearance()
 		else
 			to_chat(user, span_danger("Maintenance Access Denied"))
@@ -171,7 +171,7 @@
 
 /obj/machinery/button/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(id)
-		id = "[port.shuttle_id]_[id]"
+		id = "[id]"
 		setup_device()
 
 /obj/machinery/button/attack_hand(mob/user)
@@ -338,6 +338,6 @@
 /obj/item/wallframe/button
 	name = "button frame"
 	desc = "Used for building buttons."
-	icon_state = "button"
+	icon_state = "doorctrl"
 	result_path = /obj/machinery/button
 	materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
