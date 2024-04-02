@@ -183,3 +183,4 @@
 #include "code\game\machinery\embedded_controller\access_controller.dm"
 #include "code\game\machinery\embedded_controller\simple_vent_controller.dm"
 #include "code\game\machinery\embedded_controller\airlock_controller.dm"
+#include "code\game\objects\structures\weapon_rack.dm"
