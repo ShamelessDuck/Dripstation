@@ -571,6 +571,7 @@
 	name = "Smartfridge (Machine Board)"
 	build_path = /obj/machinery/smartfridge
 	req_components = list(/obj/item/stock_parts/matter_bin = 1)
+	/* //Dripstation edit
 	var/static/list/fridges_name_paths = list(/obj/machinery/smartfridge = "plant produce",
 		/obj/machinery/smartfridge/food = "food",
 		/obj/machinery/smartfridge/drinks = "drinks",
@@ -579,6 +580,7 @@
 		/obj/machinery/smartfridge/chemistry = "chems",
 		/obj/machinery/smartfridge/chemistry/virology = "viruses",
 		/obj/machinery/smartfridge/disks = "disks")
+	*/
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/smartfridge/Initialize(mapload, new_type)

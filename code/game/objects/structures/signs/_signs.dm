@@ -35,6 +35,7 @@
 								 span_notice("You unfasten [src]."))
 			var/obj/item/sign_backing/SB = new (get_turf(user))
 			SB.icon_state = icon_state
+			SB.icon = icon //Dripstation edit
 			SB.sign_path = type
 			SB.setDir(dir)
 			qdel(src)

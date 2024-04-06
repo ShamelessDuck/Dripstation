@@ -108,6 +108,7 @@
 	)
 	category = CAT_CLOTHING
 
+/* //Dripstation edit
 /datum/crafting_recipe/ashtray
 	name = "Ashtray"
 	result = /obj/item/ashtray
@@ -118,6 +119,7 @@
 	)
 	tool_paths = list(/obj/item/weldingtool)
 	category = CAT_STRUCTURES
+*/
 
 /datum/crafting_recipe/pinapolantern
 	name = "Pinap-o'-Lantern"

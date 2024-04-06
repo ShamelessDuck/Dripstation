@@ -227,8 +227,10 @@
 	desc = "It's milk. White and nutritious goodness!"
 	icon_state = "milk"
 	item_state = "carton"
+	/* //Dripstation edit
 	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
+	*/
 	list_reagents = list(/datum/reagent/consumable/milk = 50)
 	possible_states = list()
 
@@ -273,8 +275,10 @@
 	desc = "It's soy milk. White and nutritious goodness!"
 	icon_state = "soymilk"
 	item_state = "carton"
+	/* //Dripstation edit
 	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
+	*/
 	list_reagents = list(/datum/reagent/consumable/soymilk = 50)
 	possible_states = list()
 

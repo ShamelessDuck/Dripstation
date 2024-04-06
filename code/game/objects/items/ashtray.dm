@@ -5,6 +5,8 @@
 	icon_state = "ashtray"
 	var/max_butts = 10
 
+/* //Dripstation edit
+
 /obj/item/ashtray/update_overlays()
 	. = ..()
 	if(contents.len == max_butts)
@@ -43,3 +45,5 @@
 			O.forceMove(drop_location())
 	update_appearance(UPDATE_ICON)
 	return ..()
+
+*/
