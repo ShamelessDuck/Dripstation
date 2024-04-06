@@ -47,8 +47,10 @@
 #define HACKED_CLOWN_REAGENTS list(\
 		/datum/reagent/consumable/superlaughter\
 	)
+//dripstation edit, new coagulant nanites to syndiborg
 #define BASE_SYNDICATE_REAGENTS list(\
 		/datum/reagent/medicine/syndicate_nanites,\
+		/datum/reagent/medicine/coagulant/blood_restoring_nanites,\
 		/datum/reagent/medicine/potass_iodide,\
 		/datum/reagent/medicine/morphine\
 	)

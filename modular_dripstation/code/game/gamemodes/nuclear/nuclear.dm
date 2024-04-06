@@ -1,5 +1,7 @@
 /datum/outfit/syndicate
 	id = /obj/item/card/id/syndicate/nuke
+	backpack_contents = list(/obj/item/storage/box/syndie/nuke=1,\
+		/obj/item/kitchen/knife/combat/survival)
 
 /datum/outfit/syndicate/leader
 	gloves = /obj/item/clothing/gloves/combat
@@ -8,6 +10,12 @@
 	..()
 	var/datum/martial_art/cqc/justanop = new
 	justanop.teach(H)
+
+/datum/outfit/syndicate/full
+	backpack_contents = list(/obj/item/storage/box/syndie/nuke=1,\
+		/obj/item/tank/jetpack/oxygen/harness=1,\
+		/obj/item/gun/ballistic/automatic/pistol=1,\
+		/obj/item/kitchen/knife/combat/survival)
 
 /datum/outfit/syndicate/no_crystals
 	var/faction = "The Syndicate"
