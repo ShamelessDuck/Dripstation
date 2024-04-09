@@ -14,7 +14,8 @@
 	human.gender = pick(MALE, FEMALE)
 	human.real_name = human.dna?.species.random_name(human.gender) || random_unique_name(human.gender)
 	human.name = human.real_name
-	human.underwear = random_underwear(human.gender)
+	if(!human.dna.features["legs"] == "Digitigrade Legs")	//dripstation edit
+		human.underwear = random_underwear(human.gender)	//dripstation edit
 	human.skin_tone = random_skin_tone()
 	human.hair_style = random_hair_style(human.gender)
 	human.facial_hair_style = random_facial_hair_style(human.gender)

@@ -731,6 +731,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 	. = list()
 	.["onstation"] = onstation
 	.["department"] = payment_department
+	.["jobDiscount"] = VENDING_DISCOUNT
 	.["chef"] = list() // "chef compartment" i.e. player-added stock
 	.["chef"]["title"] = input_display_header
 	.["chef"]["price"] = chef_price
@@ -958,7 +959,10 @@ GLOBAL_LIST_EMPTY(vending_products)
 			return FALSE
 		var/datum/bank_account/account = C.registered_account
 		if(!always_charge && account.account_job && account.account_job.paycheck_department == payment_department)
+		/* dripstation edit
 			price = 0
+		*/
+			price = max(round(price * VENDING_DISCOUNT), 1) //No longer free, but signifigantly cheaper.
 		if(price && !account.adjust_money(-price))
 			say("You do not possess the funds to purchase \the [item_name].")
 			flick(icon_deny,src)
@@ -1121,7 +1125,7 @@ GLOBAL_LIST_EMPTY(vending_products)
   */
 /obj/machinery/vending/proc/compartmentLoadAccessCheck(mob/user)
 	if(!canload_access_list)
-		return TRUE
+		return FALSE	//dripstation edit	
 	else
 		if((obj_flags & EMAGGED) || !scan_id)
 			return TRUE

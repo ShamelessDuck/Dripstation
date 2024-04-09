@@ -787,6 +787,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			if(underwear)
 				if(HAS_TRAIT(H, TRAIT_SKINNY))
 					standing += wear_skinny_version(underwear.icon_state, underwear.icon, BODY_LAYER) //Neat, this works
+				else if(H.dna.species.sexes && H.gender == FEMALE) //dripstation edit
+					standing += wear_female_version(underwear.icon_state, underwear.icon, BODY_LAYER, FEMALE_UNIFORM_FULL) //dripstation edit
 				else
 					standing += mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
 
@@ -796,7 +798,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				if(HAS_TRAIT(H, TRAIT_SKINNY)) //Check for skinny first
 					standing += wear_skinny_version(undershirt.icon_state, undershirt.icon, BODY_LAYER)
 				else if(H.dna.species.sexes && H.gender == FEMALE)
-					standing += wear_female_version(undershirt.icon_state, undershirt.icon, BODY_LAYER)
+					standing += wear_female_version(undershirt.icon_state, undershirt.icon, BODY_LAYER, FEMALE_UNIFORM_FULL) //dripstation edit
 				else
 					standing += mutable_appearance(undershirt.icon, undershirt.icon_state, -BODY_LAYER)
 

@@ -3,6 +3,7 @@
 	desc = "It's a storage unit for level 3 biohazard gear."
 	icon_state = "bio"
 
+/*	dripstation edit
 /obj/structure/closet/l3closet/PopulateContents()
 	new /obj/item/storage/bag/bio(src)
 	new /obj/item/clothing/suit/bio_suit/general(src)
@@ -51,4 +52,5 @@
 	new /obj/item/clothing/head/bio_hood/scientist(src)
 	new /obj/item/clothing/mask/breath(src)
 	new /obj/item/tank/internals/oxygen(src)
+*/
 

@@ -46,23 +46,36 @@
 	name = "Brig Physician"
 	jobtype = /datum/job/brigphysician
 
+/* dripstation edit
 	pda_type = /obj/item/modular_computer/tablet/pda/preset/medical/paramed
+*/
 
 	backpack_contents = list(/obj/item/roller = 1)
+/* dripstation edit
 	belt = /obj/item/storage/belt/medical
+*/
 	ears = /obj/item/radio/headset/headset_medsec
+/* dripstation edit
 	glasses = /obj/item/clothing/glasses/hud/health/sunglasses
+*/
 	shoes = /obj/item/clothing/shoes/jackboots
 	digitigrade_shoes = /obj/item/clothing/shoes/xeno_wraps/jackboots
+/* dripstation edit
 	uniform = /obj/item/clothing/under/yogs/rank/physician/white
+*/
 	uniform_skirt = /obj/item/clothing/under/yogs/rank/physician/white/skirt
 	suit = /obj/item/clothing/suit/toggle/labcoat/emt/physician
 	l_hand = /obj/item/storage/firstaid/regular
+/* dripstation edit
 	r_hand = /obj/item/modular_computer/laptop/preset/paramedic/brig_physician
 	gloves = /obj/item/clothing/gloves/color/latex/nitrile
+*/
 	head = /obj/item/clothing/head/soft/emt/phys
+/* dripstation edit
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
+*/
+	box = /obj/item/storage/box/survival
 
 	implants = list(/obj/item/implant/mindshield)

@@ -90,8 +90,12 @@
 	excludefromjob = list("Network Admin", "Chief Engineer", "Research Director") // CE has access. RD has authority. 
 
 /datum/objective_item/steal/reactive
+/*
 	name = "the Research Director's reactive teleport armor."
 	targetitem = /obj/item/clothing/suit/armor/reactive/teleport
+*/
+	name = "the Research Director's reactive armor."	//dripstation edit
+	targetitem = /obj/item/clothing/suit/armor/reactive	//dripstation edit
 	difficulty = 5
 	excludefromjob = list("Research Director")
 

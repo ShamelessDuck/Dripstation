@@ -36,9 +36,11 @@
 	name = "Network Admin"
 	jobtype = /datum/job/network_admin
 
+/* //Dripstation edit
 	pda_type = /obj/item/modular_computer/tablet/pda/preset/network_admin
 
 	belt = /obj/item/storage/belt/utility/full/engi
+*/
 	ears = /obj/item/radio/headset/headset_network
 	uniform = /obj/item/clothing/under/yogs/rank/network_admin
 	uniform_skirt = /obj/item/clothing/under/yogs/rank/network_admin/skirt
@@ -48,9 +50,11 @@
 	digitigrade_shoes = /obj/item/clothing/shoes/xeno_wraps/engineering
 	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced=1)
 
+	/* //Dripstation edit
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
 	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
+	*/
 	box = /obj/item/storage/box/survival/engineer
 
 	pda_slot = ITEM_SLOT_LPOCKET

@@ -7,6 +7,7 @@
 	panel_type = "panel15"
 	product_slogans = "Dress for success!;Prepare to look swagalicious!;Look at all this swag!;Why leave style up to fate? Use the ClothesMate!"
 	vend_reply = "Thank you for using the ClothesMate!"
+/*
 	products = list(/obj/item/clothing/head/beanie = 3,
 		            /obj/item/clothing/head/beanie/black = 3,
 		            /obj/item/clothing/head/beanie/red = 3,
@@ -215,6 +216,7 @@
 		           /obj/item/clothing/suit/yogs/infsuit = 1,
 		           /obj/item/clothing/under/yogs/persskinsuit = 3,
 				   /obj/item/clothing/suit/toggle/cyberpunk = 1) //yogs end
+*/
 	refill_canister = /obj/item/vending_refill/clothing
 	default_price = 50
 	extra_price = 75

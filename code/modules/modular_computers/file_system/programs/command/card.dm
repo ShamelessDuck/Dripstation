@@ -56,7 +56,12 @@
 			"department" = CARDCON_DEPARTMENT_ENGINEERING,
 			"region" = 5,
 			"head" = "Chief Engineer"
-		)
+		),	//dripstation edit
+		"[ACCESS_QM]" = list(
+			"department" = CARDCON_DEPARTMENT_SUPPLY,
+			"region" = 6,
+			"head" = "Quartermaster"
+		)	//dripstation edit
 	)
 
 /datum/computer_file/program/card_mod/proc/authenticate(mob/user, obj/item/card/id/id_card)
@@ -70,7 +75,7 @@
 	if(!target_dept && (ACCESS_CHANGE_IDS in id_card.access))
 		minor = FALSE
 		authenticated = TRUE
-		region_access = list(CARDCON_DEPARTMENT_SERVICE, CARDCON_DEPARTMENT_COMMAND, CARDCON_DEPARTMENT_SECURITY, CARDCON_DEPARTMENT_MEDICAL, CARDCON_DEPARTMENT_SCIENCE, CARDCON_DEPARTMENT_ENGINEERING)
+		region_access = list(CARDCON_DEPARTMENT_SERVICE, CARDCON_DEPARTMENT_COMMAND, CARDCON_DEPARTMENT_SECURITY, CARDCON_DEPARTMENT_MEDICAL, CARDCON_DEPARTMENT_SCIENCE, CARDCON_DEPARTMENT_ENGINEERING, CARDCON_DEPARTMENT_SUPPLY)	//dripstation edit
 		update_static_data(user)
 		return TRUE
 

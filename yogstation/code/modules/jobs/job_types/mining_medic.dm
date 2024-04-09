@@ -46,26 +46,36 @@
 	name = "Mining Medic"
 	jobtype = /datum/job/miningmedic
 
+/* dripstation edit
 	pda_type = /obj/item/modular_computer/tablet/pda/preset/medical/paramed
+*/
 
 	backpack_contents = list(/obj/item/roller = 1,\
 		/obj/item/kitchen/knife/combat/survival = 1,\
 		/obj/item/reagent_containers/autoinjector/medipen/survival = 1,\
 		/obj/item/modular_computer/laptop/preset/paramedic/mining_medic = 1)
 
+/* dripstation edit
 	belt = /obj/item/storage/belt/medical/mining
+*/
 	ears = /obj/item/radio/headset/headset_medcargo
+/* dripstation edit
 	glasses = /obj/item/clothing/glasses/hud/health/meson
+*/
 	shoes = /obj/item/clothing/shoes/workboots/mining
 	digitigrade_shoes = /obj/item/clothing/shoes/xeno_wraps/medical
 	suit = /obj/item/clothing/suit/toggle/labcoat/emt/explorer
+/* dripstation edit
 	uniform = /obj/item/clothing/under/yogs/rank/miner/medic
 	l_hand = /obj/item/storage/firstaid/hypospray/qmc
 	gloves = /obj/item/clothing/gloves/color/latex/fireproof
+*/
 	l_pocket = /obj/item/wormhole_jaunter
+/* dripstation edit
 	head = /obj/item/clothing/head/soft/emt/mining
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
+*/
 	box = /obj/item/storage/box/survival/mining
 	pda_slot = ITEM_SLOT_LPOCKET

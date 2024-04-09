@@ -4,7 +4,8 @@ GLOBAL_LIST_INIT(original_command_positions, list(
 	"Head of Security",
 	"Chief Engineer",
 	"Research Director",
-	"Chief Medical Officer"))
+	"Chief Medical Officer",
+	"Quartermaster"))	//dripstation edit
 
 GLOBAL_LIST_INIT(command_lightup_areas, typecacheof(list(
 	/area/bridge,
@@ -80,7 +81,9 @@ GLOBAL_LIST_INIT(science_lightup_areas, 		\
 )
 
 GLOBAL_LIST_INIT(original_supply_positions, list(
+	/*	dripstation edit
 	"Head of Personnel",
+	*/
 	"Quartermaster",
 	"Cargo Technician",
 	"Shaft Miner"))
@@ -95,6 +98,7 @@ GLOBAL_LIST_INIT(supply_lightup_areas,			\
 )
 
 GLOBAL_LIST_INIT(original_civilian_positions, list(
+	"Head of Personnel",
 	"Bartender",
 	"Botanist",
 	"Cook",
@@ -136,7 +140,8 @@ GLOBAL_LIST_INIT(alt_command_positions, list(
 	"Security Commander", "Security Chief",
 	"Head of Engineering", "Engineering Director", "Senior Engineer",
 	"Chief Science Officer", "Head of Research", "Chief Technology Officer",
-	"Medical Director", "Head of Medical"))
+	"Medical Director", "Head of Medical",
+	"Stock Controller", "Cargo Coordinator", "Shipping Overseer", "Postmaster General",))	//dripstation edit
 
 GLOBAL_LIST_INIT(alt_engineering_positions, list(
 	"Head of Engineering", "Engineering Director", "Senior Engineer",
@@ -162,7 +167,9 @@ GLOBAL_LIST_INIT(alt_science_positions, list(
 	"Augmentation Theorist", "Cyborg Maintainer", "Robotics Intern", "Biomechanical Engineer", "Mechatronic Engineer", "Machinist", "Chrome Shaman", "Ripperdoc"))
 
 GLOBAL_LIST_INIT(alt_supply_positions, list(
+	/*Dripstation edit, QM is head of supply
 	"Chief of Staff", "Head of Internal Affairs",
+	*/
 	"Stock Controller", "Cargo Coordinator", "Shipping Overseer", "Postmaster General",
 	"Deliveryperson", "Mail Service", "Exports Handler", "Cargo Trainee", "Crate Pusher", "Courier",
 	"Lavaland Scout", "Prospector", "Junior Miner", "Major Miner", "Surveyor"))

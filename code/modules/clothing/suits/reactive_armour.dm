@@ -5,8 +5,10 @@
 	icon = 'icons/obj/clothing/suits/suits.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 
+/* dripstation edit
 /obj/item/reactive_armor_shell/attackby(obj/item/I, mob/user, params)
 	..()
+*/
 	var/static/list/anomaly_armor_types = list(
 		/obj/effect/anomaly/grav	                = /obj/item/clothing/suit/armor/reactive/repulse,
 		/obj/effect/anomaly/flux 	           		= /obj/item/clothing/suit/armor/reactive/tesla,
@@ -16,6 +18,8 @@
 		/obj/effect/anomaly/hallucination = /obj/item/clothing/suit/armor/reactive/hallucinating,
 		)
 
+/obj/item/reactive_armor_shell/attackby(obj/item/I, mob/user, params)	// dripstation edit
+	..()	// dripstation edit
 	if(istype(I, /obj/item/assembly/signaler/anomaly))
 		var/obj/item/assembly/signaler/anomaly/A = I
 		var/armor_path = anomaly_armor_types[A.anomaly_type]

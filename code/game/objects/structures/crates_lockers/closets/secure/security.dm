@@ -3,6 +3,7 @@
 	req_access = list(ACCESS_CAPTAIN)
 	icon_state = "cap"
 
+/*
 /obj/structure/closet/secure_closet/captains/PopulateContents()
 	..()
 	new /obj/item/clothing/neck/petcollar(src)
@@ -17,12 +18,14 @@
 	new /obj/item/storage/photo_album/Captain(src)
 	new /obj/item/clipboard/yog/paperwork/captain(src)
 	new /obj/item/radio/security(src)
+*/
 
 /obj/structure/closet/secure_closet/hop
 	name = "\proper head of personnel's locker"
 	req_access = list(ACCESS_HOP)
 	icon_state = "hop"
 
+/*
 /obj/structure/closet/secure_closet/hop/PopulateContents()
 	..()
 	new /obj/item/storage/lockbox/medal/service(src)
@@ -43,12 +46,14 @@
 	new /obj/item/clipboard/yog/paperwork/hop(src)
 	new /obj/item/gun/energy/e_gun/mini(src) //hop doesn't get a proper gun
 	new /obj/item/storage/backpack/duffelbag/clothing/hop(src)
+*/
 
 /obj/structure/closet/secure_closet/hos
 	name = "\proper head of security's locker"
 	req_access = list(ACCESS_HOS)
 	icon_state = "hos"
 
+/*
 /obj/structure/closet/secure_closet/hos/PopulateContents()
 	..()
 	new /obj/item/radio/headset/heads/hos/alt(src)
@@ -72,12 +77,14 @@
 	new /obj/item/radio/security(src)
 	new /obj/item/storage/backpack/duffelbag/clothing/sec/head(src)
 	new /obj/item/barrier_taperoll/police(src)
+*/
 
 /obj/structure/closet/secure_closet/warden
 	name = "\proper warden's locker"
 	req_access = list(ACCESS_ARMORY)
 	icon_state = "warden"
 
+/*
 /obj/structure/closet/secure_closet/warden/PopulateContents()
 	..()
 	new /obj/item/radio/headset/headset_sec(src)
@@ -97,12 +104,14 @@
 	new /obj/item/radio/security(src)
 	new /obj/item/storage/backpack/duffelbag/clothing/sec/warden(src)
 	new /obj/item/barrier_taperoll/police(src)
+*/
 
 /obj/structure/closet/secure_closet/security
 	name = "security officer's locker"
 	req_access = list(ACCESS_SECURITY)
 	icon_state = "sec"
 
+/*
 /obj/structure/closet/secure_closet/security/PopulateContents()
 	..()
 	new /obj/item/clothing/suit/armor/vest(src)
@@ -114,6 +123,7 @@
 	new /obj/item/radio/security(src)
 	new /obj/item/clipboard/yog/paperwork/security(src)
 	new /obj/item/barrier_taperoll/police(src)
+*/
 
 /obj/structure/closet/secure_closet/security/sec
 

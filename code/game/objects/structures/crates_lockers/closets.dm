@@ -331,6 +331,7 @@ GLOBAL_LIST_EMPTY(lockers)
 	if(!broken && !(flags_1 & NODECONSTRUCT_1))
 		bust_open()
 
+/* Dripstation cutter edit
 /obj/structure/closet/attackby(obj/item/attacking_item, mob/user, params)
 	if(user in src)
 		return
@@ -373,6 +374,7 @@ GLOBAL_LIST_EMPTY(lockers)
 			update_appearance()
 		return TRUE
 	return FALSE
+*/
 
 /obj/structure/closet/wirecutter_act(mob/living/user, obj/item/tool)
 	if(user.a_intent == INTENT_HARM || (flags_1 & NODECONSTRUCT_1))

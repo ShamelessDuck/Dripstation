@@ -3,6 +3,7 @@
 	req_access = list(ACCESS_QM)
 	icon_state = "qm"
 
+/*
 /obj/structure/closet/secure_closet/quartermaster/PopulateContents()
 	..()
 	new /obj/item/storage/lockbox/medal/cargo(src)
@@ -26,3 +27,4 @@
 	new /obj/item/circuitboard/machine/ore_silo(src)
 	new /obj/item/card/id/departmental_budget/car(src)
 	new /obj/item/clothing/suit/hooded/wintercoat/qm(src)
+*/

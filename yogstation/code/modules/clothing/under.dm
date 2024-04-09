@@ -31,9 +31,13 @@
 /obj/item/clothing/under/yogs/soviet_dress_uniform
 	name = "soviet dress uniform"
 	desc = "Seize the means of production in style!"
+/*Dripstation edit
 	icon_state = "soviet_dress_uniform"
+*/
 	item_state = "soviet_dress_uniform"
+/*Dripstation edit
 	can_adjust = FALSE
+*/
 
 /obj/item/clothing/under/yogs/lederhosen
 	name = "lederhosen"

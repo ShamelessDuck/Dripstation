@@ -1,5 +1,5 @@
 // SUIT STORAGE UNIT /////////////////
-/obj/machinery/suit_storage_unit
+/*/obj/machinery/suit_storage_unit
 	name = "suit storage unit"
 	desc = "An industrial unit made to hold and decontaminate irradiated equipment. It comes with a built-in UV cauterization mechanism. A small warning label advises that organic matter should not be placed into the unit."
 	icon = 'icons/obj/machines/suit_storage.dmi'
@@ -167,13 +167,13 @@
 				. += "storage"
 	else if(occupant)
 		. += "human"
-
+*/
 /obj/machinery/suit_storage_unit/power_change()
 	if(!is_operational() && state_open)
 		open_machine()
 		dump_contents()
 	return ..()
-
+/*
 /obj/machinery/suit_storage_unit/proc/dump_contents()
 	dropContents()
 	helmet = null
@@ -276,7 +276,7 @@
 		decon.stop()
 		if(occupant)
 			dump_contents()
-
+*/
 /obj/machinery/suit_storage_unit/proc/shock(mob/user, prb)
 	if(!prob(prb))
 		var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
@@ -331,7 +331,7 @@
 		visible_message(span_notice("You see [user] burst out of [src]!"), \
 			span_notice("You escape the cramped confines of [src]!"))
 		open_machine()
-
+/*
 /obj/machinery/suit_storage_unit/attackby(obj/item/I, mob/user, params)
 	if(state_open && is_operational())
 		if(istype(I, /obj/item/clothing/suit))
@@ -380,7 +380,7 @@
 		return
 
 	return ..()
-
+*/
 /obj/machinery/suit_storage_unit/default_pry_open(obj/item/I)//needs to check if the storage is locked.
 	. = !(state_open || panel_open || is_operational() || locked) && I.tool_behaviour == TOOL_CROWBAR
 	if(.)
@@ -393,7 +393,7 @@
 	if(!ui)
 		ui = new(user, src, "SuitStorageUnit", name)
 		ui.open()
-
+/*
 /obj/machinery/suit_storage_unit/ui_data()
 	var/list/data = list()
 	data["locked"] = locked
@@ -472,7 +472,7 @@
 					I.forceMove(loc)
 			. = TRUE
 	update_appearance(UPDATE_ICON)
-
+*/
 /obj/machinery/suit_storage_unit/AltClick(mob/user)
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return

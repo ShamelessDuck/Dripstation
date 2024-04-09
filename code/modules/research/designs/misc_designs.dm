@@ -218,6 +218,7 @@
 	category = list("Equipment")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
 
+/*	dripstation blacklist edit
 /datum/design/night_vision_goggles
 	name = "Night Vision Goggles"
 	desc = "Goggles that let you see through darkness unhindered."
@@ -227,6 +228,7 @@
 	build_path = /obj/item/clothing/glasses/night
 	category = list("Equipment")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_SECURITY
+*/
 
 /datum/design/magboots
 	name = "Magnetic Boots"

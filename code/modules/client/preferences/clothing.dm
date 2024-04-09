@@ -2,7 +2,7 @@
 	var/icon/lower_half = icon('icons/blanks/32x32.dmi', "nothing")
 
 	for (var/icon in icons)
-		lower_half.Blend(icon('icons/mob/human_parts_greyscale.dmi', icon), ICON_OVERLAY)
+		lower_half.Blend(icon('modular_dripstation/icons/mob/human_parts_greyscale.dmi', icon), ICON_OVERLAY)	//dripstation edit
 
 	var/list/values = list()
 
@@ -49,7 +49,7 @@
 	return values
 
 /datum/preference/choiced/backpack/create_default_value()
-	return GBACKPACK
+	return DBACKPACK	//dripstation edit
 
 /datum/preference/choiced/backpack/apply_to_human(mob/living/carbon/human/target, value)
 	target.backbag = value
@@ -70,6 +70,9 @@
 
 	return values
 
+/datum/preference/choiced/jumpsuit/create_default_value()	//dripstation edit
+	return PREF_SUIT	//dripstation edit
+
 /datum/preference/choiced/jumpsuit/apply_to_human(mob/living/carbon/human/target, value)
 	target.jumpsuit_style = value
 
@@ -81,8 +84,11 @@
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 
+/datum/preference/choiced/socks/create_default_value()	//dripstation edit
+	return "Nude"	//dripstation edit
+
 /datum/preference/choiced/socks/init_possible_values()
-	return generate_values_for_underwear('icons/mob/clothing/sprite_accessories/socks.dmi', GLOB.socks_list, list("human_r_leg", "human_l_leg"))
+	return generate_values_for_underwear('modular_dripstation/icons/mob/clothing/under.dmi', GLOB.socks_list, list("human_r_leg_m", "human_l_leg_m"))	//dripstation edit
 
 /datum/preference/choiced/socks/apply_to_human(mob/living/carbon/human/target, value)
 	target.socks = value
@@ -103,14 +109,17 @@
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 
+/datum/preference/choiced/undershirt/create_default_value()	//dripstation edit
+	return "Nude"	//dripstation edit
+
 /datum/preference/choiced/undershirt/init_possible_values()
-	var/icon/body = icon('icons/mob/human_parts_greyscale.dmi', "human_r_leg")
-	body.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_l_leg"), ICON_OVERLAY)
-	body.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_r_arm"), ICON_OVERLAY)
-	body.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_l_arm"), ICON_OVERLAY)
-	body.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_r_hand"), ICON_OVERLAY)
-	body.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_l_hand"), ICON_OVERLAY)
-	body.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_chest_m"), ICON_OVERLAY)
+	var/icon/body = icon('modular_dripstation/icons/mob/human_parts_greyscale.dmi', "human_r_leg_m") 				//dripstation edit
+	body.Blend(icon('modular_dripstation/icons/mob/human_parts_greyscale.dmi', "human_l_leg_m"), ICON_OVERLAY)	//dripstation edit
+	body.Blend(icon('modular_dripstation/icons/mob/human_parts_greyscale.dmi', "human_r_arm_m"), ICON_OVERLAY)	//dripstation edit
+	body.Blend(icon('modular_dripstation/icons/mob/human_parts_greyscale.dmi', "human_l_arm_m"), ICON_OVERLAY) 	//dripstation edit
+	body.Blend(icon('modular_dripstation/icons/mob/human_parts_greyscale.dmi', "human_r_hand_m"), ICON_OVERLAY)	//dripstation edit
+	body.Blend(icon('modular_dripstation/icons/mob/human_parts_greyscale.dmi', "human_l_hand_m"), ICON_OVERLAY)	//dripstation edit
+	body.Blend(icon('modular_dripstation/icons/mob/human_parts_greyscale.dmi', "human_chest_m"), ICON_OVERLAY)	//dripstation edit
 
 	var/list/values = list()
 
@@ -119,7 +128,7 @@
 
 		if (accessory_name != "Nude")
 			var/datum/sprite_accessory/accessory = GLOB.undershirt_list[accessory_name]
-			icon_with_undershirt.Blend(icon('icons/mob/clothing/sprite_accessories/undershirt.dmi', accessory.icon_state), ICON_OVERLAY)
+			icon_with_undershirt.Blend(icon('modular_dripstation/icons/mob/clothing/under.dmi', accessory.icon_state), ICON_OVERLAY)	//dripstation edit
 
 		icon_with_undershirt.Crop(9, 9, 23, 23)
 		icon_with_undershirt.Scale(32, 32)
@@ -146,8 +155,11 @@
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 
+/datum/preference/choiced/underwear/create_default_value()	//dripstation edit
+	return "Nude"	//dripstation edit
+
 /datum/preference/choiced/underwear/init_possible_values()
-	return generate_values_for_underwear('icons/mob/clothing/sprite_accessories/underwear.dmi', GLOB.underwear_list, list("human_chest_m", "human_r_leg", "human_l_leg"))
+	return generate_values_for_underwear('modular_dripstation/icons/mob/clothing/under.dmi', GLOB.underwear_list, list("human_chest_m", "human_r_leg_m", "human_l_leg_m"))	//dripstation edit
 
 /datum/preference/choiced/underwear/apply_to_human(mob/living/carbon/human/target, value)
 	target.underwear = value

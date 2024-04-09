@@ -18,7 +18,7 @@
 	else if(MGENDER in initial(species_type.species_traits))
 		return MALE
 
-	return pick(list(MALE, FEMALE, PLURAL))
+	return pick(list(MALE, FEMALE))	//dripstation edit
 
 /datum/preference/choiced/gender/apply_to_human(mob/living/carbon/human/target, value)
 	var/datum/species/S = target.dna.species
@@ -33,3 +33,5 @@
 			value = MALE
 			
 	target.gender = value
+	if((FACEHAIR in S.species_traits) && target.gender == FEMALE)	//dripstation edit
+		target.facial_hair_style = "Shaved"	//Yeah, I know it`s shit af

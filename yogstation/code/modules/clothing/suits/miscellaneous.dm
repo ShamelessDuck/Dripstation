@@ -1,6 +1,8 @@
 /obj/item/clothing/suit/hooded/wintercoat/engineering/tcomms
+	/*
 	mob_overlay_icon = 'yogstation/icons/mob/clothing/suit/suit.dmi'
 	icon = 'yogstation/icons/obj/clothing/suits.dmi'
+	*/
 	name = "network admin's winter coat"
 	icon_state = "coatsignaltech"
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/radio, /obj/item/analyzer, /obj/item/multitool, /obj/item/assembly/signaler, /obj/item/assembly/signaler/button, /obj/item/tank/internals/plasmaman, /obj/item/tank/internals/ipc_coolant)

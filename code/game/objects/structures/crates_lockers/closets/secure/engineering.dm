@@ -3,6 +3,7 @@
 	req_access = list(ACCESS_CE)
 	icon_state = "ce"
 
+/*	//dripstation edit
 /obj/structure/closet/secure_closet/engineering_chief/PopulateContents()
 	..()
 	new /obj/item/tank/jetpack/suit(src)
@@ -30,6 +31,7 @@
 	new /obj/item/storage/lockbox/medal/eng(src)
 	new /obj/item/barrier_taperoll/engineering(src)
 	new /obj/item/multisurgeon/magboots(src)
+*/	//dripstation edit
 
 /obj/structure/closet/secure_closet/engineering_electrical
 	name = "electrical supplies locker"

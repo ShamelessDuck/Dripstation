@@ -95,6 +95,85 @@
 					/obj/item/suppressor)
 		new item(C)
 
+/datum/supply_pack/costumes_toys/randomised/syndicate
+	name = "Tactical Crate"
+	desc = "(*!&@#UH THIS IS ANOTHER OPTION. YOU WANNA HAVE SOME DRIP? WELL, ITS YOURS, BUT FOR THE FAIR PRICE, OPERATIVE.#@*$"
+	hidden = TRUE
+	cost = 2000
+	num_contained = 1
+	contains = list(/obj/item/storage/box/donkdrip,
+					/obj/item/storage/box/donkdrip/combat,
+					/obj/item/storage/box/donkdrip/maid)
+	crate_name = "crate"
+
+/datum/supply_pack/costumes_toys/wardrobes/security
+	name = "Law and Order Wardrobe Supply Crate"
+	desc = "This crate contains refills for the SecDrobe, DetDrobe and LawDrobe."
+	cost = 2000
+	contains = list(/obj/item/vending_refill/wardrobe/sec_wardrobe,
+					/obj/item/vending_refill/wardrobe/law_wardrobe,
+					/obj/item/vending_refill/wardrobe/det_wardrobe)
+
+/datum/supply_pack/security/tackler
+	name = "Gripper Gloves Crate"
+	desc = "Contains three pairs of gripper gloves. Requires Security access to open."
+	cost = 1000
+	contains = list(/obj/item/clothing/gloves/tackler,
+					/obj/item/clothing/gloves/tackler,
+					/obj/item/clothing/gloves/tackler)
+	crate_name = "gripper crate"
+
+/datum/supply_pack/security/armory/swat
+	desc = "Contains two fullbody sets of tough, fireproof, pressurized suits designed in a joint effort by Terragov and Nanotrasen. Each set contains a suit, helmet, mask, combat belt, and NT brand tackler gloves. Requires Armory access to open."
+	contains = list(/obj/item/clothing/head/helmet/swat/nanotrasen,
+					/obj/item/clothing/head/helmet/swat/nanotrasen,
+					/obj/item/clothing/suit/space/swat,
+					/obj/item/clothing/suit/space/swat,
+					/obj/item/clothing/mask/gas/sechailer/swat,
+					/obj/item/clothing/mask/gas/sechailer/swat,
+					/obj/item/storage/belt/military/assault,
+					/obj/item/storage/belt/military/assault,
+					/obj/item/clothing/gloves/tackler/nt,
+					/obj/item/clothing/gloves/tackler/nt)
+
+/datum/supply_pack/security/securityclothes
+	contains = list(/obj/item/clothing/under/rank/security/navyblue,
+					/obj/item/clothing/under/rank/security/navyblue,
+					/obj/item/clothing/suit/armor/officerjacket,
+					/obj/item/clothing/suit/armor/officerjacket,
+					/obj/item/clothing/head/beret/sec/navyofficer,
+					/obj/item/clothing/head/beret/sec/navyofficer,
+					/obj/item/clothing/under/rank/warden/navyblue,
+					/obj/item/clothing/suit/armor/wardenjacket,
+					/obj/item/clothing/head/beret/sec/navywarden)
+
+/datum/supply_pack/security/armory/laserarmor
+	name = "Reflective Armor Crate"
+	desc = "Contains two vests and two helmets of highly reflective material. Each armor piece diffuses a laser's energy by over half, as well as offering a good chance to reflect the laser entirely. Requires Armory access to open."
+	cost = 3000
+	contains = list(/obj/item/clothing/suit/armor/laserproof,
+					/obj/item/clothing/suit/armor/laserproof,
+					/obj/item/clothing/head/helmet/laserproof,
+					/obj/item/clothing/head/helmet/laserproof)
+
+/datum/supply_pack/clearance/heavymining
+	name = "Old Mining Hardsuit Crate"
+	desc = "Contains one old specialised piece of equipment."
+	cost = 3000
+	order_limit = 1
+	contains = list(/obj/item/clothing/suit/space/hardsuit/heavymining)
+
+/datum/supply_pack/security/armory/hos
+	name = "Head of Security Armor Crate"
+	desc = "Contains set of HoS heavy armor."
+	cost = 5000
+	order_limit = 1
+	special = TRUE
+	crate_type = /obj/structure/closet/crate/secure/weapon
+	contains = list(/obj/item/clothing/head/helmet/HoS,
+					/obj/item/clothing/suit/armor/riot/hos)
+	crate_name = "hos supply crate"
+
 /datum/supply_pack/security/armory/laser		//dripstation mooving lethals to the armory
 	name = "Lasers Crate"
 	desc = "Contains three lethal, high-energy laser guns. Requires Armory access to open."

@@ -1,0 +1,1 @@
+#define COMSIG_MOVABLE_PRE_IMPACT "movable_pre_impact"

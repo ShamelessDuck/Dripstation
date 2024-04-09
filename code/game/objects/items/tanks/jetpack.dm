@@ -252,7 +252,10 @@
 
 /mob/living/carbon/human/get_jetpack()
 	var/obj/item/tank/jetpack/J = ..()
-	if(!istype(J) && istype(wear_suit, /obj/item/clothing/suit/space/hardsuit))
+	if(!istype(J) && istype(s_store, /obj/item/tank/jetpack))	//dripstation edit
+		var/obj/item/tank/jetpack/SJ = s_store	//dripstation edit
+		J = SJ	//dripstation edit
+	else if(!istype(J) && istype(wear_suit, /obj/item/clothing/suit/space/hardsuit))	//dripstation edit
 		var/obj/item/clothing/suit/space/hardsuit/C = wear_suit
 		J = C.jetpack
 	return J

@@ -32,8 +32,12 @@
 	var/can_claim = FALSE
 	var/obj/item/card/id/C = usr?.get_idcard()
 	// Security officers and wardens
+	/*	DRIPSTATION EDIT START
 	if(istype(C) && (ACCESS_SECURITY in C.access) && (ACCESS_WEAPONS in C.access) && !(ACCESS_HOS in C.access))
+	*/
+	if(istype(C) && (ACCESS_SECURITY in C.access) && (ACCESS_WEAPONS in C.access) && ((C.originalassignment == "Security Officer") || (C.originalassignment == "Warden")))
 		allowed = TRUE
+	//DRIPSTATION EDIT END
 	// Hasn't claimed a weapon yet
 	if(C?.registered_account && !C.registered_account.sec_weapon_claimed)
 		can_claim = TRUE

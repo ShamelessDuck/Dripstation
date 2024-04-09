@@ -174,6 +174,7 @@ GLOBAL_LIST_INIT(detective_vest_allowed, typecacheof(list(
 	/obj/item/lighter,
 	/obj/item/melee/baton,
 	/obj/item/melee/classic_baton,
+	/obj/item/storage/belt/holster,		//dripstation edit
 	/obj/item/reagent_containers/spray/pepper,
 	/obj/item/restraints/handcuffs,
 	/obj/item/storage/fancy/cigarettes,

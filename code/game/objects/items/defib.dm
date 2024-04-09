@@ -150,13 +150,14 @@
 	else
 		safety = TRUE
 		to_chat(user, span_notice("You silently enable [src]'s safety protocols with the cryptographic sequencer."))
+	update_appearance(UPDATE_ICON)	//dripstation edit
 	return TRUE
 
 /obj/item/defibrillator/emp_act(severity)
 	. = ..()
 
 	if(cell && !(. & EMP_PROTECT_CONTENTS))
-		deductcharge(500 * severity)
+		deductcharge(2500 * severity)	//dripstation edit
 
 	if (. & EMP_PROTECT_SELF)
 		return
@@ -269,11 +270,13 @@
 	combat = TRUE
 	safety = FALSE
 
+/*	dripstation edit
 /obj/item/defibrillator/compact/combat/loaded/Initialize(mapload)
 	. = ..()
 	paddles = make_paddles()
 	cell = new /obj/item/stock_parts/cell/infinite(src)
 	update_appearance(UPDATE_ICON)
+*/
 
 /obj/item/defibrillator/compact/combat/loaded/attackby(obj/item/W, mob/user, params)
 	if(W == paddles)
@@ -403,6 +406,7 @@
 		playsound(src, 'sound/machines/defib_failed.ogg', 50, 0)
 		return
 	
+	/* nah, revive via stunbaton, dripstation edit
 	var/has_rod = FALSE
 	for(var/obj/item/rod_of_asclepius/rod in user.held_items)
 		if(istype(rod) && rod.activated)
@@ -410,6 +414,8 @@
 			break
 
 	if(!(HAS_TRAIT(src, TRAIT_WIELDED) || has_rod))
+	*/
+	if(!(HAS_TRAIT(src, TRAIT_WIELDED)))//dripstation edit
 		if(iscyborg(user))
 			to_chat(user, span_warning("You must activate the paddles in your active module before you can use them on someone!"))
 		else
@@ -448,14 +454,16 @@
 		H.grab_ghost() // Shove them back in their body.
 	else if(H.can_defib(FALSE))
 		H.notify_ghost_cloning("Your heart is being defibrillated. Re-enter your corpse if you want to be revived!", source = src)
+	/* dripstation edit, f asclepius rod
 	if(has_rod && !HAS_TRAIT(src, TRAIT_WIELDED))
 		to_chat(user, span_notice("Your snake holds the other paddle in its mouth and places it on [H]'s chest."))
+	*/
 	do_help(H, user)
 
 /obj/item/shockpaddles/proc/shock_touching(dmg, mob/H)
 	if(isliving(H.pulledby))		//CLEAR!
 		var/mob/living/M = H.pulledby
-		if(M.electrocute_act(30, src))
+		if(M.electrocute_act(dmg, src))	//dripstation edit
 			M.visible_message(span_danger("[M] is electrocuted by [M.p_their()] contact with [H]!"))
 			M.emote("scream")
 
@@ -494,7 +502,7 @@
 		span_warning("You overcharge the paddles and begin to place them onto [H]'s chest..."))
 	busy = TRUE
 	update_appearance(UPDATE_ICON)
-	if(do_after(user, 3 SECONDS, H))
+	if(do_after(user, (req_defib && defib.combat ? 1 SECONDS : 3 SECONDS), H))	//dripstation edit
 		user.visible_message(span_notice("[user] places [src] on [H]'s chest."),
 			span_warning("You place [src] on [H]'s chest and begin to charge them."))
 		var/turf/T = get_turf(defib)
@@ -523,9 +531,20 @@
 				if(!H.stat)
 					H.visible_message(span_warning("[H] thrashes wildly, clutching at [H.p_their()] chest!"),
 						span_userdanger("You feel a horrible agony in your chest!"))
+				/*
 				H.set_heartattack(TRUE)
+				*/
+				if((combat || defib.combat) && prob(heart_attack_chance))	//dripstation edit
+					H.set_heartattack(TRUE)	//dripstation edit
+					log_combat(user, H, "overloaded the heart of", defib)	//dripstation edit
+				else if (prob(10))	//dripstation edit
+					H.set_heartattack(TRUE)	//dripstation edit
+					log_combat(user, H, "gives the heart hard time with", defib)	//dripstation edit
 			H.apply_damage(50, BURN, BODY_ZONE_CHEST)
+			log_combat(user, H, "shocks harmfully", defib)	//dripstation edit
+			/*
 			log_combat(user, H, "overloaded the heart of", defib)
+			*/
 			H.Paralyze(100)
 			H.adjust_jitter(100 SECONDS)
 			if(req_defib)
@@ -544,7 +563,7 @@
 	user.visible_message(span_warning("[user] begins to place [src] on [H]'s chest."), span_warning("You begin to place [src] on [H]'s chest..."))
 	busy = TRUE
 	update_appearance(UPDATE_ICON)
-	if(do_after(user, 3 SECONDS, H)) //beginning to place the paddles on patient's chest to allow some time for people to move away to stop the process
+	if(do_after(user, (req_defib && defib.combat ? 1 SECONDS : 3 SECONDS), H)) //beginning to place the paddles on patient's chest to allow some time for people to move away to stop the process, dripstation edit
 		user.visible_message(span_notice("[user] places [src] on [H]'s chest."), span_warning("You place [src] on [H]'s chest."))
 		playsound(src, 'sound/machines/defib_charge.ogg', 75, 0)
 		var/total_burn	= 0
@@ -552,7 +571,7 @@
 		var/tplus = world.time - H.timeofdeath	//length of time spent dead
 		var/obj/item/organ/heart = H.getorgan(/obj/item/organ/heart)
 		if(do_after(user, 1.5 SECONDS, H))
-			if(user.job == "Medical Doctor" || user.job == "Paramedic" || user.job == "Chief Medical Officer")
+			if(user.job in GLOB.medical_positions)	//dripstation edit
 				user.say("Clear!", forced = "defib")
 		if(do_after(user, 0.5 SECONDS, H)) //Counting the delay for "Clear", revive time is 5sec total
 			for(var/obj/item/carried_item in H.contents)

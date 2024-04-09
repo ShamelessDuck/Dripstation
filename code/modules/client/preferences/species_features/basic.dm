@@ -1,7 +1,7 @@
 /proc/generate_possible_values_for_sprite_accessories_on_head(accessories)
 	var/list/values = possible_values_for_sprite_accessory_list(accessories)
 
-	var/icon/head_icon = icon('icons/mob/human_parts_greyscale.dmi', "human_head_m")
+	var/icon/head_icon = icon('modular_dripstation/icons/mob/human_parts_greyscale.dmi', "human_head_m")	//dripstation edit
 	head_icon.Blend(skintone2hex("caucasian1"), ICON_MULTIPLY)
 
 	for (var/name in values)
@@ -78,6 +78,18 @@
 
 /datum/preference/choiced/facial_hairstyle/init_possible_values()
 	return generate_possible_values_for_sprite_accessories_on_head(GLOB.facial_hair_styles_list)
+
+/datum/preference/choiced/facial_hairstyle/create_default_value()	//dripstation edit
+	return "Shaved"	//dripstation edit
+
+/datum/preference/choiced/facial_hairstyle/is_accessible(datum/preferences/preferences)	//dripstation edit
+	if (!..(preferences))		//dripstation edit
+		return FALSE		//dripstation edit
+
+	var/datum/G = preferences.read_preference(/datum/preference/choiced/gender)	//dripstation edit
+	if(G && G == FEMALE)		//dripstation edit
+		return FALSE		//dripstation edit
+	return TRUE		//dripstation edit
 
 /datum/preference/choiced/facial_hairstyle/apply_to_human(mob/living/carbon/human/target, value)
 	target.facial_hair_style = value

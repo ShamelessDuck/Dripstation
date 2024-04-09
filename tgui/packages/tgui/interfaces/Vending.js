@@ -10,6 +10,9 @@ const VendingRow = (props, context) => {
     productStock,
     custom,
   } = props;
+  const {
+    jobDiscount,
+  } = data;
   const free = (
     !data.onstation
     || product.price === 0
@@ -17,7 +20,9 @@ const VendingRow = (props, context) => {
       !product.extended
       && data.department
       && data.user
+      /* dripstation edit
       && data.department === data.user.department
+      */
     )
     // yogs start -- patch to make ignores_capitalism work again
     || data.ignores_capitalism
@@ -33,6 +38,12 @@ const VendingRow = (props, context) => {
     )
     || data.ignores_capitalism
   );
+  const discount = (
+      data.user
+      && data.department
+      && data.department === data.user.department
+  );
+  const redPrice = Math.round(product.price * jobDiscount);
 
   return (
     <Table.Row>
@@ -94,7 +105,11 @@ const VendingRow = (props, context) => {
                 || product.price > data.user.cash
               )
             )}
+            /* dripstation edit
             content={free ? 'FREE' : product.price + ' cr'}
+            */
+            content={(free && discount)
+              ? `${redPrice} cr` : `${product.price} cr`}
             onClick={() => act('vend', {
               'ref': product.ref,
             })} />

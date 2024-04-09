@@ -1,7 +1,7 @@
 /proc/generate_lizard_side_shots(list/sprite_accessories, key, include_snout = TRUE)
 	var/list/values = list()
 
-	var/icon/lizard = icon('icons/mob/human_parts_greyscale.dmi', "lizard_head_m", EAST)
+	var/icon/lizard = icon('modular_dripstation/icons/mob/human_parts_greyscale.dmi', "lizard_head_m", EAST)	//dripstation edit
 
 	var/icon/eyes = icon('icons/mob/human_face.dmi', "eyes", EAST)
 	eyes.Blend(COLOR_GRAY, ICON_MULTIPLY)
@@ -39,7 +39,7 @@
 /datum/preference/choiced/lizard_body_markings/init_possible_values()
 	var/list/values = list()
 
-	var/icon/lizard = icon('icons/mob/human_parts_greyscale.dmi', "lizard_chest_m")
+	var/icon/lizard = icon('modular_dripstation/icons/mob/human_parts_greyscale.dmi', "lizard_chest_m")	//dripstation edit
 
 	for (var/name in GLOB.body_markings_list)
 		var/datum/sprite_accessory/sprite_accessory = GLOB.body_markings_list[name]
@@ -97,6 +97,7 @@
 	target.dna.features["horns"] = value
 
 
+/*
 /datum/preference/choiced/lizard_legs
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_key = "feature_lizard_legs"
@@ -108,6 +109,7 @@
 
 /datum/preference/choiced/lizard_legs/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["legs"] = value
+*/
 
 
 /datum/preference/choiced/lizard_snout

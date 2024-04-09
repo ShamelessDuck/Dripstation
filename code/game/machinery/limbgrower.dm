@@ -261,7 +261,7 @@
 			limb.skin_tone = random_skin_tone()
 		else
 			limb.species_color = random_short_color()
-		limb.icon = 'icons/mob/human_parts_greyscale.dmi'
+		limb.icon = 'modular_dripstation/icons/mob/human_parts_greyscale.dmi'	//dripstation edit
 		limb.should_draw_greyscale = TRUE
 	else
 		limb.icon = 'icons/mob/human_parts.dmi'

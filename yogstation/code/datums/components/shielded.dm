@@ -1,3 +1,4 @@
+/*
 /datum/component/shielded
 	var/shield_icon 
 	var/shield_icon_state 
@@ -87,3 +88,5 @@
 /datum/component/shielded/proc/on_dropped(datum/source,mob/dropper)
 	remove_shield()
 	current_owner =  null
+
+*/

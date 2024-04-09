@@ -66,6 +66,7 @@ SUBSYSTEM_DEF(throwing)
 	var/paused = FALSE
 	var/delayed_time = 0
 	var/last_move = 0
+	var/gentle = FALSE	///If the throw is gentle, then the thrownthing is harmless on impact. dripstation edit
 
 /datum/thrownthing/Destroy()
 	SSthrowing.processing -= thrownthing

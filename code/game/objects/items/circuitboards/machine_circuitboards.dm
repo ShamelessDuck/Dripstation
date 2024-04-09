@@ -641,6 +641,7 @@
 		/obj/machinery/vending/autodrobe = "AutoDrobe",
 		/obj/machinery/vending/wardrobe/sec_wardrobe = "SecDrobe",
 		/obj/machinery/vending/wardrobe/medi_wardrobe = "MediDrobe",
+		/obj/machinery/vending/wardrobe/para_wardrobe = "ParaDrobe",
 		/obj/machinery/vending/wardrobe/engi_wardrobe = "EngiDrobe",
 		/obj/machinery/vending/wardrobe/atmos_wardrobe = "AtmosDrobe",
 		/obj/machinery/vending/wardrobe/cargo_wardrobe = "CargoDrobe",
@@ -672,6 +673,7 @@
 		/obj/machinery/vending/engineering = "Robco Tool Maker",
 		/obj/machinery/vending/sovietsoda = "BODA",
 		/obj/machinery/vending/security = "SecTech",
+		/obj/machinery/vending/wardrobe/det_wardrobe = "DetDrobe",	/*Dripstation edit*/
 		/obj/machinery/vending/fishing = "Tackle Box 2000")//Yogs
 		//obj/machinery/vending/modularpc = "Deluxe Silicate Selections") // Yogs comment-out, because ktlwjec is bad at merging mirrors
 

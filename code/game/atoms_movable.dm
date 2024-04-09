@@ -953,8 +953,12 @@
 
 /atom/movable/proc/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	set waitfor = 0
+	var/hitpush = TRUE	//dripstation edit
+	var/impact_signal = SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_IMPACT, hit_atom, throwingdatum)	//dripstation edit
+	if(impact_signal & COMPONENT_MOVABLE_IMPACT_FLIP_HITPUSH)	//dripstation edit
+		hitpush = FALSE											//dripstation edit
 	SEND_SIGNAL(src, COMSIG_MOVABLE_IMPACT, hit_atom, throwingdatum)
-	return hit_atom.hitby(src, throwingdatum=throwingdatum)
+	return hit_atom.hitby(src, throwingdatum=throwingdatum, hitpush=hitpush)	//dripstation edit
 
 /atom/movable/hitby(atom/movable/AM, skipcatch, hitpush = TRUE, blocked, datum/thrownthing/throwingdatum)
 	if(!anchored && hitpush && (!throwingdatum || (throwingdatum.force >= (move_resist * MOVE_FORCE_PUSH_RATIO))))

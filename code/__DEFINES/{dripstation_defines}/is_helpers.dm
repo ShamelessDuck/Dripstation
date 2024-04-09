@@ -1,0 +1,1 @@
+#define isfelinid(A) (is_species(A, /datum/species/human/felinid))

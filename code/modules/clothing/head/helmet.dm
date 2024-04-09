@@ -534,7 +534,7 @@
 	var/obj/item/kevlar_plating/K = I
 
 	name = "[K.name_set] plated helmet"
-	slowdown = K.slowdown_set
+	slowdown = K.slowdown_set/2		//dripstation edit
 	if (islist(armor) || isnull(armor))		//For an explanation see code/modules/clothing/under/accessories.dm#L39 - accessory detach proc							
 		armor = getArmor(arglist(armor))
 	if (islist(K.armor) || isnull(K.armor))

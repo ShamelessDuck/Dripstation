@@ -685,7 +685,10 @@
 	if(!proximity_flag)
 		return ..()
 	if(istype(target,/obj/item/clothing/suit/space/hardsuit))
+		/* dripastation edit
 		target.AddComponent(/datum/component/shielded,'yogstation/icons/effects/effects.dmi',"tar_shield", 30 SECONDS, ITEM_SLOT_OCLOTHING)
+		*/
+		target.AddComponent(/datum/component/shielded,shielded_icon = 'modular_dripstation/icons/effects/shield.dmi', shielded_icon_state = "tar_shield", shielded_recharge = 30 SECONDS, slot = ITEM_SLOT_OCLOTHING, sparks_enable = FALSE)	//dripastation edit
 		visible_message("[user] inserts [src] into [target]")
 		qdel(src)
 		return

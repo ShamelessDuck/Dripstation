@@ -98,7 +98,7 @@
 #define BODYPART_SUBTYPE_ROBOTIC 2
 #define BODYPART_SUBTYPE_IPC 3
 
-#define DEFAULT_BODYPART_ICON_ORGANIC 'icons/mob/human_parts_greyscale.dmi'
+#define DEFAULT_BODYPART_ICON_ORGANIC 'modular_dripstation/icons/mob/human_parts_greyscale.dmi' //dripstation edit
 #define DEFAULT_BODYPART_ICON_ROBOTIC 'icons/mob/augmentation/augments.dmi'
 
 #define MONKEY_BODYPART "monkey"

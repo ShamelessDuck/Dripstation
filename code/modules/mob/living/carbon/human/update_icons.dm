@@ -260,7 +260,15 @@ There are several things that need to be remembered:
 			if(hud_used.inventory_shown)
 				client.screen += gloves
 		update_observer_view(gloves,1)
+	//DRIPSTATION EDIT START
+		var/target_overlay = gloves.icon_state
+		if("[dna.species.limbs_id]" == "human" && gender == FEMALE)
+			target_overlay = "[target_overlay]_f"
+		overlays_standing[GLOVES_LAYER] = gloves.build_worn_icon(default_layer = GLOVES_LAYER, default_icon_file = 'modular_dripstation/icons/mob/clothing/hands.dmi', isinhands = FALSE, override_state = target_overlay)
+		/*
 		overlays_standing[GLOVES_LAYER] = gloves.build_worn_icon(default_layer = GLOVES_LAYER, default_icon_file = 'icons/mob/clothing/hands/hands.dmi')
+		*/
+	//DRIPSTATION EDIT END
 		gloves_overlay = overlays_standing[GLOVES_LAYER]
 		if(OFFSET_GLOVES in dna.species.offset_features)
 			gloves_overlay.pixel_x += dna.species.offset_features[OFFSET_GLOVES][1]
