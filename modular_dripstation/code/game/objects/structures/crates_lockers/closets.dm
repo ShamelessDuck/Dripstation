@@ -355,10 +355,6 @@ GLOBAL_LIST_INIT(closet_cutting_types, typecacheof(list(
 	K.desc = "It's a small grey key. Don't let those goddamn ashwalkers or plantpeople get it."
 
 // ###### BRIG PHYSICIAN ######
-/obj/structure/closet/secure_closet/physician
-	icon = 'modular_dripstation/icons/obj/closet.dmi'
-	icon_state = "brigphys"
-
 /obj/structure/closet/secure_closet/physician/PopulateContents()
 	..()
 	new /obj/item/storage/bag/garment/physician(src)

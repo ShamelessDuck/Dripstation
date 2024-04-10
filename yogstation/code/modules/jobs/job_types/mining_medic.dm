@@ -78,4 +78,6 @@
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 */
 	box = /obj/item/storage/box/survival/mining
+/* dripstation edit
 	pda_slot = ITEM_SLOT_LPOCKET
+*/

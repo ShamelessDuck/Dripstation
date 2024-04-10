@@ -104,7 +104,6 @@
 #include "code\game\objects\items\stacks\medical.dm"
 #include "code\game\objects\items\storage\belt.dm"
 #include "code\game\objects\items\storage\book.dm"
-#include "code\game\objects\items\storage\box.dm"
 #include "code\game\objects\items\storage\boxes.dm"
 #include "code\game\objects\items\storage\fancy.dm"
 #include "code\game\objects\items\storage\firstaid.dm"

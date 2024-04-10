@@ -160,7 +160,9 @@
 /obj/machinery/vending/wardrobe/sig_wardrobe
 	name = "NetDrobe"
 	desc = "A rarely used vending machine that provides clothing for Network Admins."
+	/* Dripstation edit
 	icon = 'yogstation/icons/obj/vending.dmi'
+	*/
 	icon_state = "sigdrobe"
 	panel_type = "panel-sigdrobe"
 	product_ads = "Dress to impress yourself!;The drones will love you!;Get your clothing here!"

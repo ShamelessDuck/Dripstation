@@ -1,7 +1,9 @@
 /obj/machinery/vending/wallmed
 	name = "\improper NanoMed"
 	desc = "Wall-mounted Medical Equipment dispenser."
+	/* Dripstation edit
 	icon = 'yogstation/icons/obj/vending.dmi'
+	*/
 	icon_state = "wallmed"
 	icon_deny = "wallmed-deny"
 	density = FALSE

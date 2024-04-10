@@ -13,6 +13,9 @@
 	program_icon_state = "word"
 	program_color = COLOR_BLUE
 
+/datum/computer_file/program/pdamessager
+	program_icon_state = "word"
+
 /datum/computer_file/program/computerconfig
 	program_color = LIGHT_COLOR_ELECTRIC_GREEN
 

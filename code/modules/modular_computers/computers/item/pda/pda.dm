@@ -6,10 +6,12 @@
 	icon_state_unpowered = "pda"
 	icon_state_powered = "pda"
 	icon_state_menu = "menu"
+/* Dripstation edit
 	greyscale_config = /datum/greyscale_config/tablet
 	greyscale_colors = "#999875#a92323"
 
 	variants = null
+*/
 
 	hardware_flag = PROGRAM_PDA
 	max_hardware_size = WEIGHT_CLASS_SMALL

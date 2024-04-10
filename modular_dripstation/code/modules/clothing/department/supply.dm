@@ -306,6 +306,7 @@ obj/item/clothing/suit/hooded/wintercoat/cargo
 
 /obj/item/clothing/head/soft/emt/mining
 	icon_state = "exploresoft"
+	soft_type = "explore"
 	icon = 'modular_dripstation/icons/obj/clothing/hats.dmi'
 	mob_overlay_icon = 'modular_dripstation/icons/mob/clothing/hats.dmi'
 

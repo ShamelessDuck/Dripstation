@@ -12,8 +12,8 @@
 	satchel = /obj/item/storage/backpack/satchel/explorer
 	duffelbag = /obj/item/storage/backpack/duffelbag/explorer
 
-	pda_type = /obj/item/modular_computer/tablet/pda/preset/paramed/miningmed
-	pda_slot = ITEM_SLOT_BELT
+	pda_type = /obj/item/modular_computer/tablet/pda/preset/medical/miningmed
+	pda_slot = ITEM_SLOT_RPOCKET
 
 /datum/outfit/job/plasmaman/miningmedic
 	gloves = /obj/item/clothing/gloves/color/latex
@@ -23,5 +23,5 @@
 	satchel = /obj/item/storage/backpack/satchel/explorer
 	duffelbag = /obj/item/storage/backpack/duffelbag/explorer
 
-	pda_type = /obj/item/modular_computer/tablet/pda/preset/paramed/miningmed
-	pda_slot = ITEM_SLOT_BELT
+	pda_type = /obj/item/modular_computer/tablet/pda/preset/medical/miningmed
+	pda_slot = ITEM_SLOT_RPOCKET

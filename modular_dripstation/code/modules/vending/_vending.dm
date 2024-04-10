@@ -42,6 +42,10 @@
 	light_color = LIGHT_COLOR_BLUEGREEN
 	req_access = list(ACCESS_HYDROPONICS)
 
+/obj/machinery/vending/wallmed
+	icon_vend = "wallmed-vend"
+	light_mask = "wallmed-light-mask"
+
 /obj/machinery/vending/wallgene
 	req_access = list(ACCESS_GENETICS)
 	light_mask = "wallmed-light-mask"
