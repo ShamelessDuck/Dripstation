@@ -36,6 +36,7 @@
 			to_chat(user, span_warning("The [src] is full please empty it before you continue."))
 		return FALSE
 
+/* Dripstation edit
 /obj/machinery/papershredder/attackby(obj/item/W, mob/user)
 	if(default_unfasten_wrench(user, W))
 		return
@@ -90,6 +91,7 @@
 	
 	if(shred_amount && try_insert(user, shred_amount))
 		qdel(W)
+*/
 
 /obj/machinery/papershredder/verb/empty()
 	set name = "Empty bin"
@@ -118,6 +120,7 @@
 /obj/machinery/papershredder/AltClick(mob/living/user)
 	emptypaper()
 
+/* //Dripstation edit
 /obj/machinery/papershredder/update_icon_state()
 	. = ..()
 	switch(paperamount) //cant we just use round(paperamount, 2)
@@ -133,6 +136,7 @@
 			icon_state = "papershredder4"
 		if(9, 10)
 			icon_state = "papershredder5"
+*/
 
 /obj/item/shreddedpaper
 	name = "shredded paper"

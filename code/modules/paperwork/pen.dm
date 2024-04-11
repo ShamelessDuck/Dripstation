@@ -88,21 +88,25 @@
 	materials = list(/datum/material/gold = 750)
 	sharpness = SHARP_POINTY
 	resistance_flags = FIRE_PROOF
+/* //Dripstation edit
 	unique_reskin = list("Oak" = "pen-fountain-o",
 						"Gold" = "pen-fountain-g",
 						"Rosewood" = "pen-fountain-r",
 						"Black and Silver" = "pen-fountain-b",
 						"Command Blue" = "pen-fountain-cb"
 						)
+*/
 
 /obj/item/pen/fountain/captain/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, 200, 115) //the pen is mightier than the sword
 
+/* //Dripstation edit
 /obj/item/pen/fountain/captain/reskin_obj(mob/M)
 	..()
 	if(current_skin)
 		desc = "It's an expensive [current_skin] fountain pen. The nib is quite sharp."
+*/
 
 /obj/item/pen/attack_self(mob/living/carbon/user)
 	var/deg = input(user, "What angle would you like to rotate the pen head to? (1-360)", "Rotate Pen Head") as null|num

@@ -1,7 +1,9 @@
 /obj/item/stamp
 	name = "\improper GRANTED rubber stamp"
 	desc = "A rubber stamp for stamping important documents."
+	/* Dripstation edit
 	icon = 'yogstation/icons/obj/bureaucracy.dmi'
+	*/
 	icon_state = "stamp-ok"
 	item_state = "stamp"
 	throwforce = 0

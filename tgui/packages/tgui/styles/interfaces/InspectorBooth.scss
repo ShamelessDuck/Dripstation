@@ -367,7 +367,7 @@ $stamp-height: 8vh !default;
     &.engineering { background-color: rgba(193, 95, 5, 1); border-bottom-color: rgba(144, 75, 11, 1); }
     &.cargo { background-color: rgba(165, 145, 118, 1); border-bottom-color: rgba(143, 118, 89, 1); }
     &.science { background-color: rgba(131, 42, 131, 1); border-bottom-color: rgba(102, 36, 102, 1); }
-    &.mime { background-color: rgba(0, 0, 0, 0.75); }
+    &.mime { background-color: rgba(48, 48, 48, 0.75); border-bottom-color: rgb(7, 7, 7); }
 
     // This is horrifying
     &.clown {background:
@@ -412,20 +412,29 @@ $stamp-height: 8vh !default;
 }
 .InspectorBooth .paper120x54 { background-size: 100% 100% !important; }
 .InspectorBooth .paper121x54 {
-  background-size: 3*$stamp-width 5*$stamp-height !important;
+  background-size: 3*$stamp-width 6*$stamp-height !important;
   background-position: 0 0 !important;
   // If any new stamps are added this will probably break
+  //TO FIX: you'd need to access spritesheet logs in data/logs/[round year]/[round month]/[round day]/[round]/generated_assets , you need to enable asset saving in configs
+  //You'd need to compare previous stamp spritesheet and new spritesheet defined by /datum/asset/spritesheet/simple/paper
+  //background-size defines scaling of the grid inside of the spritesheet, 15 stamps = 3*$stamp-width 5*$stamp-height, 18 stamps = 3*$stamp-width 6*$stamp-height, so on
+  //stamp_height means y-axis inside the spritesheet grid, stamp-width means x-axis
   &.stamp-cent{ background-position: -0 -0 !important; }
-  &.stamp-mime{ background-position: -1*$stamp-width -0 !important; }
-  &.stamp-law{ background-position: -2*$stamp-width -0 !important; }
-  &.stamp-qm{ background-position: -0 -1*$stamp_height !important; }
-  &.stamp-cap{ background-position: -1*$stamp-width -1*$stamp_height !important; }
-  &.stamp-rd{ background-position: -2*$stamp-width -1*$stamp_height !important; }
-  &.stamp-hos{ background-position: -0 -2*$stamp_height !important; }
-  &.stamp-ce{ background-position: -$stamp-width -2*$stamp_height !important; }
-  &.stamp-cmo{ background-position: -2*$stamp-width -2*$stamp_height !important; }
-  &.stamp-hop{ background-position: -0 -3*$stamp_height !important; }
-  &.stamp-ok{ background-position: -$stamp-width -3*$stamp_height !important; }
-  &.stamp-deny{ background-position: -2*$stamp-width -3*$stamp_height !important; }
-  &.stamp-clown{ background-position: -0 -4*$stamp_height !important; }
+  &.stamp-mime{ background-position: -0 -2*$stamp_height !important; }
+  &.stamp-law{ background-position: -1*$stamp-width -2*$stamp_height !important; }
+  &.stamp-qm{ background-position: -2*$stamp-width -2*$stamp_height !important; }
+  &.stamp-cap{ background-position: -0 -3*$stamp_height !important; }
+  &.stamp-rd{ background-position: -1*$stamp-width -3*$stamp_height !important; }
+  &.stamp-hos{ background-position: -2*$stamp-width -3*$stamp_height !important; }
+  &.stamp-ce{ background-position: -0 -4*$stamp_height !important; }
+  &.stamp-cmo{ background-position: -1*$stamp-width -4*$stamp_height !important; }
+  &.stamp-hop{ background-position: -2*$stamp-width -4*$stamp_height !important; }
+  &.stamp-ok{ background-position: -0 -5*$stamp_height !important; }
+  &.stamp-deny{ background-position: -1*$stamp-width -5*$stamp_height !important; }
+  &.stamp-clown{ background-position: -2*$stamp-width -5*$stamp_height !important; }
+  &.stamp-magistrate{ background-position: -0 -1*$stamp_height !important; }
+  &.stamp-ward{ background-position: -1*$stamp-width -1*$stamp_height !important; }
+  &.stamp-blueshield{ background-position: -1*$stamp-width -0 !important; }
+  &.stamp-chap{ background-position: -2*$stamp-width -1*$stamp_height !important; }
+  &.stamp-rep{ background-position: -2*$stamp-width 0 !important; }
 }

@@ -1,0 +1,5 @@
+#define DYE_BLUES "blueshield"
+#define DYE_MAGI "magistrate"
+#define DYE_NTREP "ntrep"
+#define DYE_WARD "ward"
+#define DYE_CHAP "chap"

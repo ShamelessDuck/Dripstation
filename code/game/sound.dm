@@ -221,6 +221,12 @@ distance_multiplier - Can be used to multiply the distance at which the sound is
 /proc/get_sfx(soundin)
 	if(istext(soundin))
 		switch(soundin)
+			//DRIPSTATION EDIT START
+			if ("stamp_sounds")
+				soundin = pick('modular_dripstation/sound/effects/stamp1.ogg','modular_dripstation/sound/effects/stamp2.ogg','modular_dripstation/sound/effects/stamp3.ogg')
+			if ("writing_sounds")
+				soundin = pick('modular_dripstation/sound/effects/pen1.ogg', 'modular_dripstation/sound/effects/pen2.ogg', 'modular_dripstation/sound/effects/pen3.ogg')
+			//DRIPSTATION EDIT END
 			if ("shatter")
 				soundin = pick('sound/effects/glassbr1.ogg','sound/effects/glassbr2.ogg','sound/effects/glassbr3.ogg')
 			if ("explosion")

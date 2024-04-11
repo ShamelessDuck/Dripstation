@@ -1,0 +1,23 @@
+/obj/machinery/inspector_booth
+	stamp_types = list(
+		"stamp-ok" = "stamp_approve.png",
+		"stamp-deny" = "stamp_deny.png",
+		"stamp-cap" = "stamp_cap.png",
+		"stamp-hop" = "stamp_hop.png",
+		"stamp-hos" = "stamp_hos.png",
+		"stamp-cmo" = "stamp_cmo.png",
+		"stamp-qm" = "stamp_qm.png",
+		"stamp-rd" = "stamp_rd.png",
+		"stamp-ce" = "stamp_ce.png",
+		"stamp-law" = "stamp_law.png",
+		"stamp-clown" = "stamp_clown.png",
+		"stamp-rep" = "stamp_ntr.png",
+		"stamp-blueshield" = "stamp_bs.png",
+		"stamp-magistrate" = "stamp_magi.png",
+		"stamp-mime" = "stamp_mime.png",
+		"stamp-chap" = "stamp_chap.png",
+		"stamp-ward" = "stamp_ward.png",
+		"stamp-syndi" = "stamp_syndi.png",
+		"stamp-cent" = "stamp_cent.png",
+		"stamp-syndiround" = "stamp_syndiround.png",	
+	)

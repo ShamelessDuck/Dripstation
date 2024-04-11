@@ -223,6 +223,7 @@
 #include "code\__DEFINES\{dripstation_defines}\cargo.dm"
 #include "code\__DEFINES\{dripstation_defines}\codewords.dm"
 #include "code\__DEFINES\{dripstation_defines}\colors.dm"
+#include "code\__DEFINES\{dripstation_defines}\dye_keys.dm"
 #include "code\__DEFINES\{dripstation_defines}\is_helpers.dm"
 #include "code\__DEFINES\{dripstation_defines}\staggered.dm"
 #include "code\__DEFINES\{dripstation_defines}\traits.dm"

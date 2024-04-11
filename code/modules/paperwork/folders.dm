@@ -1,7 +1,9 @@
 /obj/item/folder
 	name = "folder"
 	desc = "A folder."
+	/* Dripstation edit
 	icon = 'yogstation/icons/obj/bureaucracy.dmi'
+	*/
 	icon_state = "folder"
 	w_class = WEIGHT_CLASS_SMALL
 	pressure_resistance = 2

@@ -320,7 +320,9 @@ class IDCard extends Item {
     this.sfx_stopDrag = 'card_drag_stop';
     this.r = -20;
     this.bg = 'idcard.png';
-    if (props.bg === 'id_silver' || props.bg === 'id_gold') {
+    //  id background is based off id card icon_state inside the yogstation/icons/obj/card.dmi
+    //  to add more card icons you need to write them into the /datum/asset/simple/inspector_booth
+    if (props.bg === 'id_silver' || props.bg === 'id_gold' || props.bg === 'id_head' || props.bg === 'id_mime') {
       this.bg = props.bg.replace('_', 'card_') + '.png';
     }
   }

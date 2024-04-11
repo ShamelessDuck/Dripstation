@@ -55,6 +55,7 @@
 		"ntosradarpointerS.png" = 'icons/UI_Icons/tgui/ntosradar_pointer_S.png'
 	)
 
+/* Dripstation edit
 /datum/asset/simple/inspector_booth
 	assets = list(
 		"desk_bg.png" = 'icons/UI_Icons/tgui/inspector_booth/desk_bg.png',
@@ -85,6 +86,7 @@
 		"stamp_unknown.png" = 'icons/UI_Icons/tgui/inspector_booth/stamp_unknown.png',
 		"paper.png" = 'icons/UI_Icons/tgui/inspector_booth/paper.png',
 	)
+*/
 
 /datum/asset/spritesheet/simple/pda
 	name = "pda"
@@ -118,6 +120,7 @@
 		"dronephone"	= 'icons/pda_icons/pda_dronephone.png',
 	)
 
+/* //Dripstation edit
 /datum/asset/spritesheet/simple/paper
 	name = "paper"
 	assets = list(
@@ -137,6 +140,7 @@
 		"stamp-syndi" = 'icons/stamp_icons/large_stamp-syndi.png',
 		"stamp-syndiround" = 'icons/stamp_icons/large_stamp-syndiround.png'
 	)
+*/
 
 
 /datum/asset/simple/irv

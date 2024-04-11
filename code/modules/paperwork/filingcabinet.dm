@@ -13,7 +13,9 @@
 /obj/structure/filingcabinet
 	name = "filing cabinet"
 	desc = "A large cabinet with drawers."
+	/* //Dripstation edit
 	icon = 'yogstation/icons/obj/bureaucracy.dmi'
+	*/
 	icon_state = "filingcabinet"
 	density = TRUE
 	anchored = TRUE

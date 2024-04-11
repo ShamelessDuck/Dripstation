@@ -59,6 +59,7 @@
 	return attack_hand(user)
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
+/* Dripstation edit
 /obj/item/paper_bin/attack_hand(mob/user)
 	if(isliving(user))
 		var/mob/living/L = user
@@ -104,6 +105,7 @@
 		to_chat(user, span_warning("[src] is empty!"))
 	add_fingerprint(user)
 	return ..()
+*/
 
 /obj/item/paper_bin/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/paper))
@@ -111,6 +113,7 @@
 		if(!user.transferItemToLoc(P, src))
 			return
 		to_chat(user, span_notice("You put [P] in [src]."))
+		playsound(src, 'sound/items/handling/paper_drop.ogg', 40, 1) //Dripstation edit
 		papers.Add(P)
 		total_paper++
 		update_appearance(UPDATE_ICON)
@@ -131,12 +134,14 @@
 	else
 		. += "It doesn't contain anything."
 
+/* Dripstation edit
 /obj/item/paper_bin/update_icon_state()
 	. = ..()
 	if(total_paper < 1)
 		icon_state = "paper_bin0"
 	else
 		icon_state = "[initial(icon_state)]"
+*/
 
 /obj/item/paper_bin/update_overlays()
 	. = ..()
