@@ -1,5 +1,8 @@
 #define TRAIT_PSYCHOPATHIC		"psychopathic"
 #define TRAIT_APATHETIC			"apathetic"
+#define TRAIT_MEDIC				"medic"
+#define TRAIT_NOSURGERY		"no_surgery"
+#define TRAIT_NOGUNS_QUIRK		"nogun_quirk"
 
 /// Prevents shovies and some strong blows such as unarmed punches and (unreliably) tackles the owner down
 #define TRAIT_BRAWLING_KNOCKDOWN_BLOCKED "brawling_knockdown_blocked"

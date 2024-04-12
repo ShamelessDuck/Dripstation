@@ -11,11 +11,14 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 	var/list/quirks = list()		//Assoc. list of all roundstart quirk datum types; "name" = /path/
 	var/list/quirk_points = list()	//Assoc. list of quirk names and their "point cost"; positive numbers are good traits, and negative ones are bad
 	var/list/quirk_objects = list()	//A list of all quirk objects in the game, since some may process
-	//Psychopathic, Bad Touch dripstation edit
+
+	//Psychopathic, Bad Touch, No Guns, Surgery dripstation edit
 	var/static/list/quirk_blacklist = list( //A list a list of quirks that can not be used with each other. Format: list(quirk1,quirk2),list(quirk3,quirk4)
 		list("Blind","Nearsighted"),
 		list("Jolly","Depression","Apathetic","Hypersensitive","Psychopathic"),
 		list("Bad Touch", "Friendly"),
+		list("No Surgery", "Professional Surgeon"),
+		list("No Guns", "Poor Aim"),
 		list("Ageusia","Vegetarian","Deviant Tastes"),
 		list("Ananas Affinity","Ananas Aversion"),
 		list("Alcohol Tolerance","Light Drinker"),

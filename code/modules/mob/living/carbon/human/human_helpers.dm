@@ -148,6 +148,9 @@
 		if(HAS_TRAIT(src, TRAIT_NOGUNS))
 			to_chat(src, span_warning("Your fingers don't fit in the trigger guard!"))
 			return FALSE
+		if(HAS_TRAIT(src, TRAIT_NOGUNS_QUIRK))	//dripstation edit
+			to_chat(src, span_warning("You can't bring yourself to use a ranged weapon!"))	//dripstation edit
+			return FALSE	//dripstation edit
 	if(mind?.martial_art?.no_guns && !(G.type in mind?.martial_art?.gun_exceptions)) //great dishonor to famiry
 		to_chat(src, span_warning(mind.martial_art.no_gun_message))
 		return FALSE

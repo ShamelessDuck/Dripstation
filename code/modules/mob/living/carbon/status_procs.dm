@@ -20,8 +20,8 @@
 		adjustStaminaLoss(30, FALSE)
 
 
-/mob/living/carbon/adjust_disgust(amount)
-	disgust = clamp(disgust+amount, 0, DISGUST_LEVEL_MAXEDOUT)
+/mob/living/carbon/adjust_disgust(amount, max = DISGUST_LEVEL_MAXEDOUT)	//dripstation edit
+	disgust = clamp(disgust + amount, 0, max)	//dripstation edit
 
 /mob/living/carbon/set_disgust(amount)
 	disgust = clamp(amount, 0, DISGUST_LEVEL_MAXEDOUT)

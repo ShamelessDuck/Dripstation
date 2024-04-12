@@ -227,6 +227,7 @@
 #include "code\__DEFINES\{dripstation_defines}\is_helpers.dm"
 #include "code\__DEFINES\{dripstation_defines}\staggered.dm"
 #include "code\__DEFINES\{dripstation_defines}\traits.dm"
+#include "code\__DEFINES\{dripstation_defines}\movespeed_modification.dm"
 #include "code\__DEFINES\{dripstation_defines}\dcs\signals\signals_impact.dm"
 #include "code\__DEFINES\{dripstation_defines}\dcs\signals\signals_transform.dm"
 #include "code\__DEFINES\{yogs_defines}\admin.dm"
