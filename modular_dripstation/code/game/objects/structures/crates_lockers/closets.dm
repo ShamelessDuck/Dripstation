@@ -7,6 +7,13 @@ GLOBAL_LIST_INIT(closet_cutting_types, typecacheof(list(
 	var/unlocked_state = "unlocked"
 	//var/emagged_state = "emagged"
 
+/obj/structure/closet/secure_closet/chemical
+	icon_state = "med"
+
+/obj/structure/closet/secure_closet/medical2
+	icon_state = "med"
+	icon_door = "med_generic"
+
 /obj/structure/closet/secure_closet/freezer
 	locked_state = "freezer_locked"
 	unlocked_state = "freezer_unlocked"

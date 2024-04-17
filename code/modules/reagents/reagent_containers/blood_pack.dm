@@ -87,6 +87,7 @@
 		return
 	name = "blood pack[blood_type ? " - [unique_blood ? blood_type : blood_type.name]" : ""]"
 
+/* Dripstation edit
 /obj/item/reagent_containers/blood/update_overlays()
 	. = ..()
 
@@ -96,6 +97,7 @@
 		filling.icon_state = "bloodpack[v]"
 		filling.color = mix_color_from_reagents(reagents.reagent_list)
 		. += filling
+*/
 
 /obj/item/reagent_containers/blood/random
 	icon_state = "random_bloodpack"

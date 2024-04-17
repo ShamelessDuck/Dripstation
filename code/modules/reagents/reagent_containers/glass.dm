@@ -12,6 +12,8 @@
 		return
 
 	if(!is_spillable())
+		if(lid_state == TRUE)
+			to_chat(user, span_warning("The lid prevents you from doing that!"))
 		return
 
 	if(!reagents || !reagents.total_volume)
@@ -31,6 +33,7 @@
 				log_combat(thrownby, target, "splashed (thrown) [english_list(reagents.reagent_list)]")
 				message_admins("[ADMIN_LOOKUPFLW(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] at [ADMIN_VERBOSEJMP(target)].")
 			reagents.reaction(M, TOUCH)
+			playsound(src.loc, 'sound/effects/water_emerge.ogg', 50, 1) //Dripstation edit
 			log_combat(user, M, "splashed", R)
 			reagents.clear_reagents()
 		else
@@ -64,8 +67,15 @@
 			to_chat(user, span_warning("[target] is full."))
 			return
 
+//Dripstation edit start
+		if(lid_state == TRUE)
+			to_chat(user, span_warning("[target] has a lid on it."))
+			return
+//Dripstation edit end
+
 		var/trans = reagents.trans_to(target, amount_per_transfer_from_this, transfered_by = user)
 		to_chat(user, span_notice("You transfer [trans] unit\s of the solution to [target]."))
+		playsound(src, get_sfx("pouring_sounds"), 25, 1) //Dripstation edit
 
 	else if(target.is_drainable()) //A dispenser. Transfer FROM it TO us.
 		if(!target.reagents.total_volume)
@@ -86,6 +96,7 @@
 			reagents.reaction(target, TOUCH)
 			reagents.clear_reagents()
 
+/* //Dripstation edit
 /obj/item/reagent_containers/glass/attackby(obj/item/I, mob/user, params)
 	var/hotness = I.is_hot()
 	if(hotness && reagents)
@@ -103,6 +114,7 @@
 				qdel(E)
 			return
 	..()
+*/
 
 
 /obj/item/reagent_containers/glass/beaker
@@ -131,7 +143,10 @@
 	if(isnull(base_state))
 		base_state = icon_state
 
+/* Dripstation edit
 	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[base_state]10")
+*/
+	var/mutable_appearance/filling = mutable_appearance('modular_dripstation/icons/obj/reagentfillings.dmi', "[base_state]10") //Dripstation edit
 
 	var/percent = round((reagents.total_volume / volume) * 100)
 	switch(percent)
@@ -290,6 +305,10 @@
 			reagents.trans_to(O, 5, transfered_by = user)
 			to_chat(user, span_notice("You wet [O] in [src]."))
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
+//Dripstation edit start
+	if(istype(O, /obj/item/pen))
+		return
+//Dripstation edit end
 	else if(isprox(O)) //This works with wooden buckets for now. Somewhat unintended, but maybe someone will add sprites for it soon(TM)
 		to_chat(user, span_notice("You add [O] to [src]."))
 		qdel(O)

@@ -1,6 +1,8 @@
 /obj/item/dnainjector
 	icon = 'modular_dripstation/icons/obj/syringe.dmi'
 	icon_state = "dnainjector"
+	lefthand_file = 'modular_dripstation/icons/mob/inhands/equipment/chemistry_lefthand.dmi'
+	righthand_file = 'modular_dripstation/icons/mob/inhands/equipment/chemistry_righthand.dmi'
 
 /obj/item/reagent_containers/autoinjector/combat
 	icon = 'modular_dripstation/icons/obj/syringe.dmi'

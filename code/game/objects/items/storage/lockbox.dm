@@ -243,6 +243,7 @@
 	icon_closed = "vialbox"
 	icon_broken = "vialbox"
 
+/* Dripstation edit
 /obj/item/storage/lockbox/vialbox/update_icon(updates=ALL)
 	. = ..()
 	cut_overlays()
@@ -272,6 +273,7 @@
 /obj/item/storage/lockbox/vialbox/Initialize(mapload)
 	. = ..()
 	update_appearance(UPDATE_ICON)
+*/
 
 /obj/item/storage/lockbox/vialbox/Initialize(mapload)
 	. = ..()
@@ -282,6 +284,7 @@
 	STR.locked = TRUE
 	STR.set_holdable(list(/obj/item/reagent_containers/glass/bottle/vial))
 
+/* Dripstation edit
 /obj/item/storage/lockbox/vialbox/attackby(obj/item/W, mob/user, params)
 	. = ..()
 	update_appearance(UPDATE_ICON)
@@ -289,6 +292,7 @@
 /obj/item/storage/lockbox/vialbox/AltClick(mob/user)
 	..()
 	update_appearance(UPDATE_ICON)
+*/
 
 /obj/item/storage/lockbox/vialbox/full/PopulateContents()
 	for(var/i in 1 to 6)

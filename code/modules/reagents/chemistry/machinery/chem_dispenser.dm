@@ -134,11 +134,13 @@
 		return
 	recharge_counter += delta_time
 
+/* //Dripstation edit
 /obj/machinery/chem_dispenser/proc/display_beaker()
 	var/mutable_appearance/b_o = mutable_appearance(icon, "disp_beaker")
 	b_o.pixel_y = -4
 	b_o.pixel_x = -7
 	return b_o
+*/
 
 /obj/machinery/chem_dispenser/proc/work_animation()
 	if(working_state)
@@ -273,6 +275,10 @@
 					return
 				R.add_reagent(reagent, actual)
 
+//Dripstation edit start
+				playsound(src.loc, 'modular_dripstation/sound/machines/reagent_dispense.ogg', 25, 1)
+				update_appearance(UPDATE_OVERLAYS)
+//Dripstation edit end
 				work_animation()
 				. = TRUE
 		if("remove")
@@ -370,6 +376,16 @@
 	if(istype(I, /obj/item/reagent_containers) && !(I.item_flags & ABSTRACT) && I.is_open_container())
 		var/obj/item/reagent_containers/B = I
 		. = TRUE //no afterattack
+//Dripstation edit start
+		if(istype (B, /obj/item/reagent_containers/glass))
+			if(istype (B, /obj/item/reagent_containers/glass/rag))
+				to_chat(user, span_warning("How do you... suppose to fill it?..."))
+				return
+			var/obj/item/reagent_containers/glass/G = I
+			if(G.lid_state)
+				to_chat(user, span_warning("The lid prevents you from doing that!"))
+				return
+//Dripstation edit end
 		if(!user.transferItemToLoc(B, src))
 			return
 		replace_beaker(user, B)
@@ -481,6 +497,7 @@
 	if(dir != old)
 		update_appearance(UPDATE_ICON)  // the beaker needs to be re-positioned if we rotate
 
+/* //Dripstation edit
 /obj/machinery/chem_dispenser/drinks/display_beaker()
 	var/mutable_appearance/b_o = mutable_appearance(icon, "disp_beaker")
 	switch(dir)
@@ -497,6 +514,7 @@
 			b_o.pixel_y = -7
 			b_o.pixel_x = rand(-9, 9)
 	return b_o
+*/
 
 /obj/machinery/chem_dispenser/drinks
 	name = "soda dispenser"

@@ -123,6 +123,7 @@
 	update_appearance(UPDATE_ICON)
 	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
 
+/* //Dripstation 
 /obj/machinery/computer/pandemic/update_icon_state()
 	. = ..()
 	if(stat & BROKEN)
@@ -136,6 +137,7 @@
 		return
 	if(wait)
 		. += "waitlight"
+*/
 
 /obj/machinery/computer/pandemic/proc/eject_beaker()
 	if(beaker)

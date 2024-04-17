@@ -20,6 +20,7 @@
 /obj/item/reagent_containers/glass/bottle/on_reagent_change(changetype)
 	update_appearance(UPDATE_ICON)
 
+/* //Dripstation edit
 /obj/item/reagent_containers/glass/bottle/update_overlays()
 	. = ..()
 	if(!filling_icon_state)
@@ -43,6 +44,7 @@
 
 	filling.color = mix_color_from_reagents(reagents.reagent_list)
 	. += filling
+*/
 
 /obj/item/reagent_containers/glass/bottle/epinephrine
 	name = "epinephrine bottle"
@@ -498,6 +500,7 @@
 		filling_icon_state = "[base_icon_state]stripe"
 	return ..()
 
+/* Dripstation edit
 /obj/item/reagent_containers/glass/bottle/vial/attackby(obj/P, mob/user, params)
 	add_fingerprint(user)
 	if(istype(P, /obj/item/pen))
@@ -512,6 +515,7 @@
 		name = "[base_name][t ? " ([t])" : ""]"
 	else
 		return ..()
+*/
 
 /obj/item/reagent_containers/glass/bottle/vial/libital
 	name = "vial (Libital)"

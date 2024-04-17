@@ -69,6 +69,7 @@
 	else if(A == bottle)
 		bottle = null
 
+/* Dripstation edit
 /obj/machinery/chem_master/update_overlays()
 	. = ..()
 	if (stat & BROKEN)
@@ -80,14 +81,20 @@
 		icon_state = "mixer1"
 	else
 		icon_state = "mixer0"
+*/
 
 /obj/machinery/chem_master/blob_act(obj/structure/blob/B)
 	if (prob(50))
 		qdel(src)
 
 /obj/machinery/chem_master/attackby(obj/item/I, mob/user, params)
+/* Dripstation edit start
 	if(default_deconstruction_screwdriver(user, "mixer0_nopower", "mixer0", I))
 		return
+*/
+	if(default_deconstruction_screwdriver(user, "mixer_panel", "mixer", I))
+		return
+//Dripstation edit end
 
 	else if(default_deconstruction_crowbar(I))
 		return

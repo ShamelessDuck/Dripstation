@@ -110,6 +110,7 @@
 		if(thrownby)
 			log_combat(thrownby, M, "splashed", R)
 		reagents.reaction(target, TOUCH)
+		playsound(src.loc, 'sound/effects/water_emerge.ogg', 50, 1) //Dripstation edit
 
 	else if(bartender_check(target) && thrown)
 		visible_message(span_notice("[src] lands onto the [target.name] without spilling a single drop."))
@@ -122,6 +123,7 @@
 			log_game("[key_name(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [AREACOORD(target)].")
 			message_admins("[ADMIN_LOOKUPFLW(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [ADMIN_VERBOSEJMP(target)].")
 		visible_message(span_notice("[src] spills its contents all over [target]."))
+		playsound(src.loc, 'sound/effects/water_emerge.ogg', 50, 1) //Dripstation edit
 		reagents.reaction(target, TOUCH)
 		if(QDELETED(src))
 			return

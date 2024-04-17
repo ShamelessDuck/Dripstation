@@ -172,7 +172,10 @@
 	var/rounded_vol
 	if(reagents && reagents.total_volume)
 		rounded_vol = clamp(round((reagents.total_volume / volume * 15),5), 1, 15)
+		/* //Dripstation edit
 		var/image/filling_overlay = mutable_appearance('icons/obj/reagentfillings.dmi', "syringe[rounded_vol]")
+		*/
+		var/image/filling_overlay = mutable_appearance('modular_dripstation/icons/obj/reagentfillings.dmi', "syringe[rounded_vol]") //Dripstation edit
 		filling_overlay.color = mix_color_from_reagents(reagents.reagent_list)
 		. += filling_overlay
 	else

@@ -22,6 +22,7 @@
 
 /obj/machinery/iv_drip/Destroy()
 	attached = null
+	update_beam() //Dripstation edit
 	QDEL_NULL(beaker)
 	return ..()
 
@@ -48,7 +49,10 @@
 		. += "beakeridle"
 	if(!beaker.reagents.total_volume)
 		return
+	/* Dripstation edit
 	var/mutable_appearance/filling_overlay = mutable_appearance('icons/obj/iv_drip.dmi', "reagent")
+	*/
+	var/mutable_appearance/filling_overlay = mutable_appearance('modular_dripstation/icons/obj/iv_drip.dmi', "reagent") //Dripstation edit
 	var/percent = round((beaker.reagents.total_volume / beaker.volume) * 100)
 	switch(percent)
 		if(0 to 9)
@@ -78,6 +82,7 @@
 		visible_message(span_warning("[attached] is detached from [src]."))
 		attached = null
 		update_appearance(UPDATE_ICON)
+		update_beam() //Dripstation edit
 		return
 
 	if(!target.has_dna())
@@ -90,6 +95,7 @@
 			log_combat(usr, target, "attached", src, "containing: [beaker.name] - ([beaker.reagents.log_list()])")
 			add_fingerprint(usr)
 			attached = target
+			update_beam() //Dripstation edit
 			START_PROCESSING(SSmachines, src)
 			update_appearance(UPDATE_ICON)
 		else
@@ -131,7 +137,9 @@
 	if(!(get_dist(src, attached) <= 1 && isturf(attached.loc)))
 		to_chat(attached, span_userdanger("The IV drip needle is ripped out of you!"))
 		attached.apply_damage(3, BRUTE, pick(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM))
+		attached.emote("scream")  //Dripstation edit
 		attached = null
+		update_beam() //Dripstation edit
 		update_appearance(UPDATE_ICON)
 		return PROCESS_KILL
 
@@ -174,6 +182,7 @@
 	if(attached)
 		visible_message("[attached] is detached from [src].")
 		attached = null
+		update_beam() //Dripstation edit
 		update_appearance(UPDATE_ICON)
 		return
 	else if(beaker)
@@ -202,6 +211,7 @@
 	if(attached)
 		visible_message("[attached] is detached from [src].")
 		attached = null
+		update_beam() //Dripstation edit
 
 	update_appearance(UPDATE_ICON)
 
