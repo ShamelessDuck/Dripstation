@@ -460,6 +460,9 @@ GLOBAL_LIST_EMPTY(vending_products)
 		else
 			update_appearance(UPDATE_OVERLAYS)
 		//dripstation ADDITION END
+		/*
+			update_appearance(UPDATE_ICON)
+		*/
 		updateUsrDialog()
 	else
 		to_chat(user, span_warning("You must first secure [src]."))

@@ -359,6 +359,16 @@
 	light_color = "#33CCFF"
 	color = "#33CCFF"
 
+/turf/open/floor/grass/fairy/Initialize(mapload)
+	. = ..()
+	RegisterSignal(src, COMSIG_LIGHT_EATER_ACT, PROC_REF(on_light_eater))
+
+/turf/open/floor/grass/fairy/proc/on_light_eater(obj/machinery/light/source, datum/light_eater)
+	SIGNAL_HANDLER
+	visible_message("Dark energies lash out and corrupt [src].")
+	TerraformTurf(/turf/open/floor/grass/fairy/dark)
+	return COMPONENT_BLOCK_LIGHT_EATER
+
 /turf/open/floor/grass/fairy/white
 	name = "white fairygrass patch"
 	floor_tile = /obj/item/stack/tile/fairygrass/white
@@ -402,10 +412,12 @@
 /turf/open/floor/grass/fairy/dark
 	name = "dark fairygrass patch"
 	floor_tile = /obj/item/stack/tile/fairygrass/dark
-	light_power = -0.15
-	light_range = 2
-	light_color = "#AAD84B"
-	color = "#53003f"
+	light_power = -1
+	light_color = "#21007F"
+	color = "#21007F"
+
+/turf/open/floor/grass/fairy/dark/on_light_eater(obj/machinery/light/source, datum/light_eater)
+	return
 
 /turf/open/floor/grass/fairy/Initialize(mapload)
 	. = ..()
@@ -685,7 +697,10 @@
 		air.set_moles(GAS_H2, max(air.get_moles(GAS_H2) - (pulse_strength * 0.001), 0))
 		air.adjust_moles(GAS_TRITIUM, pulse_strength * 0.001)
 
-/turf/open/IgniteTurf(power, fire_color="red")
+/turf/open/ignite_turf(power, fire_color="red")
+	. = ..()
+	if(. & SUPPRESS_FIRE)
+		return
 	if(air.get_moles(GAS_O2) < 1)
 		return
 	if(turf_fire)
@@ -693,6 +708,17 @@
 		return
 	if(!isgroundlessturf(src))
 		new /obj/effect/abstract/turf_fire(src, power, fire_color)
+
+/turf/open/extinguish_turf()
+	if(!air)
+		return
+	if(air.return_temperature() > T20C)
+		air.set_temperature(max(air.return_temperature() / 2, T20C))
+	air.react(src)
+	if(active_hotspot)
+		qdel(active_hotspot)
+	if(turf_fire)
+		qdel(turf_fire)
 
 /turf/open/proc/set_flammability(new_flammability)
 	if(isnull(new_flammability))

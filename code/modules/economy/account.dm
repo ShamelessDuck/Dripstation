@@ -70,6 +70,8 @@
 	var/money_to_transfer = account_job.paycheck * amt_of_paychecks
 */
 	var/money_to_transfer = round(account_job.paycheck * amt_of_paychecks)
+	if(!money_to_transfer)
+		return TRUE
 	if(free)
 		adjust_money(money_to_transfer)
 		return TRUE

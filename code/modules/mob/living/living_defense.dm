@@ -168,6 +168,10 @@
 		to_chat(user, span_warning("[src] can't be grabbed more aggressively!"))
 		return FALSE
 
+	if(user.grab_state >= GRAB_AGGRESSIVE && !synth_check(user, SYNTH_ORGANIC_HARM))
+		to_chat(user, span_notice("You don't want to risk hurting [src]!"))
+		return
+
 	if(user.grab_state >= GRAB_AGGRESSIVE && HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, span_notice("You don't want to risk hurting [src]!"))
 		return FALSE
@@ -443,7 +447,7 @@
 
 //called when the mob receives a bright flash
 /mob/living/proc/flash_act(intensity = 1, override_blindness_check = 0, affect_silicon = 0, visual = 0, type = /atom/movable/screen/fullscreen/flash)
-	if(get_eye_protection() < intensity && (override_blindness_check || !(HAS_TRAIT(src, TRAIT_BLIND))))
+	if(get_eye_protection() < intensity && (override_blindness_check || !(HAS_TRAIT(src, TRAIT_BLIND))) && !HAS_TRAIT(src, TRAIT_NOFLASH))
 		overlay_fullscreen("flash", type)
 		addtimer(CALLBACK(src, PROC_REF(clear_fullscreen), "flash", 25), 25)
 		return TRUE

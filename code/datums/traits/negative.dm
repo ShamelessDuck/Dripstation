@@ -188,7 +188,7 @@
 
 /datum/quirk/nyctophobia/on_process()
 	var/mob/living/carbon/human/H = quirk_holder
-	if((H.dna.species.id in list("shadow", "nightmare", "darkspawn")) || (H.mind && (H.mind.has_antag_datum(ANTAG_DATUM_THRALL) || H.mind.has_antag_datum(ANTAG_DATUM_SLING) || H.mind.has_antag_datum(ANTAG_DATUM_DARKSPAWN) || H.mind.has_antag_datum(ANTAG_DATUM_VEIL)))) //yogs - thrall & sling check
+	if((H.dna.species.id in list("shadow", "nightmare", "darkspawn")) || is_darkspawn_or_thrall(H))
 		return //we're tied with the dark, so we don't get scared of it; don't cleanse outright to avoid cheese
 	var/turf/T = get_turf(quirk_holder)
 	var/lums = T.get_lumcount()
@@ -350,7 +350,7 @@
 
 /datum/quirk/insanity/check_quirk(datum/preferences/prefs)
 	var/datum/species/species_type = prefs.read_preference(/datum/preference/choiced/species)
-	var/disallowed_trait = (initial(species_type.inherent_biotypes) & MOB_ROBOTIC)
+	var/disallowed_trait = !(initial(species_type.inherent_biotypes) & ALL_NON_ROBOTIC)
 
 	if(disallowed_trait)
 		return "You are not illogical."

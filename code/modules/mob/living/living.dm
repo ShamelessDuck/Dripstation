@@ -721,6 +721,8 @@
 	return bleed_amount
 
 /mob/living/proc/getTrail()
+	if(is_synth(src))
+		return
 	if(getBruteLoss() < 300)
 		return pick("ltrails_1", "ltrails_2")
 	else
@@ -1586,8 +1588,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
         /datum/antagonist/cult,
         /datum/antagonist/darkspawn,
         /datum/antagonist/rev,
-        /datum/antagonist/shadowling,
-        /datum/antagonist/veil
+        /datum/antagonist/thrall,
     )
     for(var/antagcheck in bad_antags)
         if(mind?.has_antag_datum(antagcheck))

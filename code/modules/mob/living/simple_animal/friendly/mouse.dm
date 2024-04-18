@@ -46,6 +46,7 @@ GLOBAL_VAR_INIT(mouse_killed, 0)
 	var/body_color //brown, gray and white, leave blank for random
 	gold_core_spawnable = FRIENDLY_SPAWN
 	move_force = MOVE_FORCE_EXTREMELY_WEAK
+	faction = list("neutral", "rat") //while they aren't rats, we don't want ai controlled rats killing these because rat king can convert them
 	var/chew_probability = 1
 	var/full = FALSE
 	var/eating = FALSE
@@ -113,6 +114,11 @@ GLOBAL_VAR_INIT(mouse_killed, 0)
 				else
 					C.deconstruct()
 					visible_message(span_warning("[src] chews through the [C]."))
+
+			var/obj/structure/ethernet_cable/E = locate() in F
+			if(E && prob(15))
+				E.deconstruct()
+				visible_message(span_warning("[src] chews through the [E]."))
 	for(var/obj/item/reagent_containers/food/snacks/cheesewedge/cheese in range(1, src))
 		if(prob(10))
 			be_fruitful()
