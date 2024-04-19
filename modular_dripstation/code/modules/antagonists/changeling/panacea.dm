@@ -10,7 +10,7 @@
 	..()
 	var/list/bad_organs = list(
 		user.getorgan(/obj/item/organ/body_egg),
-		user.getorgan(/obj/item/organ/internal/shadowtumor),
+		user.getorgan(/obj/item/organ/shadowtumor),
 		user.getorgan(/obj/item/organ/zombie_infection))
 
 	for(var/o in bad_organs)
