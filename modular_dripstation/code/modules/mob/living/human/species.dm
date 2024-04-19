@@ -1,0 +1,13 @@
+/datum/species
+	var/list/yawn_sound_female
+	var/list/yawn_sound_male
+	var/list/cough_sound_female
+	var/list/cough_sound_male
+	var/list/moan_sound_female
+	var/list/moan_sound_male
+	var/list/giggle_sound_female
+	var/list/giggle_sound_male
+	var/list/gasp_sound_female
+	var/list/gasp_sound_male
+	var/list/sneeze_sound_female
+	var/list/sneeze_sound_male
