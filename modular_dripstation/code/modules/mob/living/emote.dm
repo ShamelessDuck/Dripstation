@@ -54,7 +54,7 @@
 
 /datum/emote/living/carbon/human/cry/get_sound(mob/living/carbon/human/user)
 	if(ishuman(user) && user?.dna?.species)
-		return user.dna.species?.get_sniff_sound(user)
+		return user.dna.species?.get_cry_sound(user)
 	if(!.)
 		return ..()
 
