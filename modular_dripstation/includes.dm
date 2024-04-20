@@ -4,6 +4,7 @@
 #include "code\datums\component\mood.dm"
 #include "code\datums\component\shielded.dm"
 #include "code\datums\component\transforming.dm"
+#include "code\datums\emotes.dm"
 #include "code\datums\keybinding\communication.dm"
 #include "code\datums\mood_events\generic_negative_events.dm"
 #include "code\datums\mood_events\generic_positive_events.dm"

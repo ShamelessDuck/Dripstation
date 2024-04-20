@@ -1,13 +1,32 @@
-/datum/species
-	var/list/yawn_sound_female
-	var/list/yawn_sound_male
-	var/list/cough_sound_female
-	var/list/cough_sound_male
-	var/list/moan_sound_female
-	var/list/moan_sound_male
-	var/list/giggle_sound_female
-	var/list/giggle_sound_male
-	var/list/gasp_sound_female
-	var/list/gasp_sound_male
-	var/list/sneeze_sound_female
-	var/list/sneeze_sound_male
+/datum/species/proc/get_laugh_sound(mob/living/carbon/user)
+	return
+
+/datum/species/proc/get_giggle_sound(mob/living/carbon/user)
+	return
+
+/datum/species/proc/get_scream_sound(mob/living/carbon/user)
+	return
+
+/datum/species/proc/get_cough_sound(mob/living/carbon/user)
+	return
+
+/datum/species/proc/get_gasp_sound(mob/living/carbon/user)
+	return
+
+/datum/species/proc/get_sigh_sound(mob/living/carbon/user)
+	return
+
+/datum/species/proc/get_sneeze_sound(mob/living/carbon/user)
+	return
+
+/datum/species/proc/get_sniff_sound(mob/living/carbon/user)
+	return
+
+/datum/species/proc/get_cry_sound(mob/living/carbon/user)
+	return
+
+/datum/species/proc/get_moan_sound(mob/living/carbon/user)
+	return
+
+/datum/species/proc/get_yawn_sound(mob/living/carbon/user)
+	return

@@ -2382,10 +2382,12 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	if(HAS_BONE in species_traits)
 		. |= BIO_JUST_BONE
 
+/* //Dripstation edit
 /datum/species/proc/get_scream_sound(mob/living/carbon/human/H)
 	if(islist(screamsound))
 		return pick(screamsound)
 	return screamsound
+*/
 
 /datum/species/proc/eat_text(fullness, eatverb, obj/O, mob/living/carbon/C, mob/user)
 	. = TRUE
