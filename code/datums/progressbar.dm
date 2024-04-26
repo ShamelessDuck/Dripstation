@@ -34,7 +34,10 @@
 		return
 	goal = goal_number
 	bar_loc = target
+	/* //Dripstation edit
 	bar = image('icons/effects/progessbar.dmi', bar_loc, "prog_bar_0")
+	*/
+	bar = image('modular_dripstation/icons/effects/progressbar.dmi', bar_loc, "prog_bar_0") //Dripstation edit
 	SET_PLANE_EXPLICIT(bar, ABOVE_HUD_PLANE, User) //yogs change, increased so it draws ontop of ventcrawling overlays
 	bar.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 	user = User
@@ -125,7 +128,10 @@
 	if(progress == last_progress)
 		return
 	last_progress = progress
+	/* //Dripstation edit
 	bar.icon_state = "prog_bar_[round(((progress / goal) * 100), 5)]"
+	*/
+	bar.icon_state = "prog_bar_[round(((progress / goal) * 100), 2.5)]" //Dripstation edit
 
 
 ///Called on progress end, be it successful or a failure. Wraps up things to delete the datum and bar.

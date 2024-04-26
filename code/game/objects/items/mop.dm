@@ -19,6 +19,7 @@
 	force_string = "robust... against germs"
 	var/insertable = TRUE
 
+/*
 /obj/item/mop/Initialize(mapload)
 	. = ..()
 	create_reagents(mopcap, REFILLABLE)
@@ -55,6 +56,7 @@
 		if(do_after(user, realspeed, T))
 			to_chat(user, span_notice("You finish mopping."))
 			clean(T)
+*/
 
 
 /obj/effect/attackby(obj/item/I, mob/user, params)

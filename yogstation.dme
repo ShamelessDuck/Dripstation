@@ -225,6 +225,7 @@
 #include "code\__DEFINES\{dripstation_defines}\colors.dm"
 #include "code\__DEFINES\{dripstation_defines}\dye_keys.dm"
 #include "code\__DEFINES\{dripstation_defines}\is_helpers.dm"
+#include "code\__DEFINES\{dripstation_defines}\layers.dm"
 #include "code\__DEFINES\{dripstation_defines}\movespeed_modification.dm"
 #include "code\__DEFINES\{dripstation_defines}\staggered.dm"
 #include "code\__DEFINES\{dripstation_defines}\traits.dm"

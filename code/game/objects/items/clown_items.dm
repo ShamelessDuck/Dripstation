@@ -28,9 +28,11 @@
 	force_string = "robust... against germs"
 	var/uses = 100
 
+/*
 /obj/item/soap/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/slippery, 80)
+*/
 
 /obj/item/soap/examine(mob/user)
 	. = ..()
@@ -79,6 +81,7 @@
 	new /obj/effect/particle_effect/fluid/foam(loc)
 	return (TOXLOSS)
 
+/*
 /obj/item/soap/proc/decreaseUses(mob/user, amount = 1)
 	uses -= amount
 	if(uses <= 0)
@@ -147,6 +150,7 @@
 		target.wash_cream()
 		decreaseUses(user)
 	return
+*/
 
 /*
  * Bike Horns

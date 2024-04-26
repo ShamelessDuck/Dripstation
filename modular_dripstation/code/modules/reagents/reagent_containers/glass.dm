@@ -188,7 +188,9 @@
 /obj/item/reagent_containers/glass/bucket/update_overlays()
 	. = ..()
 	if(reagents.total_volume > 0)
-		. += "water_[initial(icon_state)]"
+		var/mutable_appearance/filling = mutable_appearance('modular_dripstation/icons/obj/janitor.dmi', "water_[initial(icon_state)]")
+		filling.color = mix_color_from_reagents(reagents.reagent_list)
+		. += filling
 	if(lid_state == TRUE)
 		. += "lid_[initial(icon_state)]"
 

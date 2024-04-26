@@ -1,0 +1,1 @@
+#define TEXT_EFFECT_PLANE 65
