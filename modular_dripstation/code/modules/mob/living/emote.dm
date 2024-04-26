@@ -33,6 +33,7 @@
 	emote_length = 3 SECONDS
 	overlay_y_offset = -1
 	overlay_icon_state = "sigh"
+	directional = TRUE
 
 /datum/emote/living/sigh/get_sound(mob/living/carbon/human/user)
 	if(ishuman(user) && user?.dna?.species)
@@ -96,6 +97,9 @@
 	emote_type = EMOTE_ANIMATED
 	overlay_icon_state = "blush"
 	emote_length = 5 SECONDS
+	directional = TRUE
+	emote_layer = BODY_LAYER
+	sound = 'modular_dripstation/sound/emotes/blush.ogg' //Skyrat port
 
 /datum/emote/living/carbon/annoyed
 	key = "annoyed"
@@ -113,6 +117,7 @@
 	emote_type = EMOTE_ANIMATED
 	overlay_icon_state = "glasses"
 	emote_length = 1 SECONDS
+	directional = TRUE
 
 /datum/emote/living/carbon/glasses/can_run_emote(mob/user, status_check = TRUE, intentional)
 	if(!..())

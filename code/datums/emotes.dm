@@ -73,8 +73,12 @@
 	. = TRUE
 //Dripstation edit start
 	if((emote_type & EMOTE_ANIMATED) && emote_length > 0)
-		var/image/I = image(overlay_icon, user, overlay_icon_state, ABOVE_MOB_LAYER, 0, overlay_x_offset, overlay_y_offset)
-		user.flick_overlay_view(I, emote_length)
+		if(directional)
+			var/image/emote_animation = image(overlay_icon, user, overlay_icon_state, emote_layer)
+			flick_overlay_global(emote_animation, GLOB.clients, emote_length)
+		else
+			var/image/I = image(overlay_icon, user, overlay_icon_state, emote_layer, 0, overlay_x_offset, overlay_y_offset)
+			user.flick_overlay_view(I, emote_length)
 
 //Dripstation edit end
 	if(!can_run_emote(user, TRUE, intentional))

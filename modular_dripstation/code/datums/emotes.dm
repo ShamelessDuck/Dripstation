@@ -15,5 +15,7 @@
 	var/icon/overlay_icon = 'modular_dripstation/icons/effects/overlay_effects.dmi'
 	/// Animated emotes - Icon state for the overlay
 	var/overlay_icon_state
-
-
+	/// If animated emote has directions
+	var/directional
+	/// Animated emote layer
+	var/emote_layer = ABOVE_MOB_LAYER
