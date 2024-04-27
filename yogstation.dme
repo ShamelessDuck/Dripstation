@@ -221,6 +221,7 @@
 #include "code\__DEFINES\traits\sources.dm"
 #include "code\__DEFINES\{dripstation_defines}\blackmarket.dm"
 #include "code\__DEFINES\{dripstation_defines}\cargo.dm"
+#include "code\__DEFINES\{dripstation_defines}\chemistry.dm"
 #include "code\__DEFINES\{dripstation_defines}\codewords.dm"
 #include "code\__DEFINES\{dripstation_defines}\colors.dm"
 #include "code\__DEFINES\{dripstation_defines}\dye_keys.dm"

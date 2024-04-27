@@ -609,7 +609,11 @@
   * * [/datum/reagent/proc/reaction_turf]
   * * [/datum/reagent/proc/reaction_obj]
   */
+/*
 /datum/reagents/proc/reaction(atom/A, methods = TOUCH, volume_modifier = 1, show_message = 1)
+*/
+/datum/reagents/proc/reaction(atom/A, methods = TOUCH, volume_modifier = 1, show_message = 1, special_modifier = 1)
+	var/datum/cached_my_atom = my_atom
 	var/react_type
 	if(isliving(A))
 		react_type = "LIVING"
@@ -636,9 +640,27 @@
 					permeability = L.get_permeability()
 				R.reaction_mob(A, methods, R.volume * volume_modifier, show_message, permeability)
 			if("TURF")
+/*Dripstation edit start
 				R.reaction_turf(A, R.volume * volume_modifier, show_message)
+*/
+				if(R.reagent_state != SOLID)
+					R.reaction_turf(A, R.volume * volume_modifier, show_message)
+				if(world.time >= next_react)
+					R.handle_state_change(A, R.volume * special_modifier, cached_my_atom)
+					if(methods & VAPOR)
+						next_react = world.time + 1
+// Dripstation edit end
 			if("OBJ")
+/* Dripstation edit start
 				R.reaction_obj(A, R.volume * volume_modifier, show_message)
+*/
+				if(R.reagent_state != SOLID)
+					R.reaction_obj(A, R.volume * volume_modifier, show_message)
+				if(world.time >= next_react)
+					R.handle_state_change(get_turf(A), R.volume * special_modifier, cached_my_atom)
+					if(methods & VAPOR)
+						next_react = world.time + 1
+// Dripstation edit end
 
 /// Same as [/datum/reagents/proc/reaction] but only for one reagent
 /// Is this holder full or not
