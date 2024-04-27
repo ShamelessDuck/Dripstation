@@ -1,5 +1,9 @@
+/* //Dripstation edit
 #define EMOTE_VISIBLE 1
 #define EMOTE_AUDIBLE 2
+*/
+#define EMOTE_AUDIBLE (1<<0) //Dripstation edit
+#define EMOTE_ANIMATED (1<<1) //Dripstation edit
 
 /datum/emote
 	/// What calls the emote.
@@ -27,7 +31,9 @@
 	/// Message with %t at the end to allow adding params to the message, like for mobs doing an emote relatively to something else.
 	var/message_param = ""
 	/// Whether the emote is visible and/or audible bitflag
+	/* //Dripstation edit
 	var/emote_type = EMOTE_VISIBLE 
+	*/
 	/// Checks if the mob can use its hands before performing the emote.
 	var/hands_use_check = FALSE
 	/// Will only work if the emote is EMOTE_AUDIBLE.
@@ -65,6 +71,16 @@
 
 /datum/emote/proc/run_emote(mob/user, params, type_override, intentional = FALSE)
 	. = TRUE
+//Dripstation edit start
+	if((emote_type & EMOTE_ANIMATED) && emote_length > 0)
+		if(directional)
+			var/image/emote_animation = image(overlay_icon, user, overlay_icon_state, emote_layer)
+			flick_overlay_global(emote_animation, GLOB.clients, emote_length)
+		else
+			var/image/I = image(overlay_icon, user, overlay_icon_state, emote_layer, 0, overlay_x_offset, overlay_y_offset)
+			user.flick_overlay_view(I, emote_length)
+
+//Dripstation edit end
 	if(!can_run_emote(user, TRUE, intentional))
 		return FALSE
 	var/msg = select_message_type(user, intentional)

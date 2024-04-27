@@ -116,7 +116,10 @@
 			var/mob/living/L = user
 			if(!L.can_speak_vocal() || L.oxyloss >= 50)
 				return //stop the sound if oxyloss too high/cant speak
+/*
 		playsound(user, user.deathsound, 200, TRUE, TRUE)
+*/
+		playsound(user, user.deathsound, 200, FALSE, TRUE) //Dripstation edit
 
 /datum/emote/living/drool
 	key = "drool"
@@ -229,7 +232,9 @@
 	message_mime = "laughs silently!"
 	emote_type = EMOTE_AUDIBLE
 	cooldown = 3 SECONDS
+	/* Dripstation edit
 	vary = TRUE
+	*/
 
 /datum/emote/living/laugh/can_run_emote(mob/living/user, status_check = TRUE , intentional)
 	. = ..()
@@ -237,6 +242,7 @@
 		var/mob/living/carbon/C = user
 		return !C.silent
 
+/* Dripstation edit
 /datum/emote/living/laugh/get_sound(mob/living/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -246,6 +252,7 @@
 				return 'sound/voice/human/womanlaugh.ogg'
 			else
 				return pick('sound/voice/human/manlaugh1.ogg', 'sound/voice/human/manlaugh2.ogg')
+*/
 
 /datum/emote/living/look
 	key = "look"
@@ -284,7 +291,9 @@
 	key = "pout"
 	key_third_person = "pouts"
 	message = "pouts."
+	/* //dripstation edit
 	emote_type = EMOTE_VISIBLE
+	*/
 
 
 /datum/emote/living/scream
@@ -493,6 +502,7 @@
 		var/custom_emote = copytext(sanitize(input("Choose an emote to display.") as text|null), 1, MAX_MESSAGE_LEN)
 		if(custom_emote && !check_invalid(user, custom_emote))
 			var/type = input("Is this a visible or hearable emote?") as null|anything in list("Visible", "Hearable")
+			/* //Dripstation edit
 			switch(type)
 				if("Visible")
 					emote_type = EMOTE_VISIBLE
@@ -501,6 +511,9 @@
 				else
 					tgui_alert(usr,"Unable to use this emote, must be either hearable or visible.")
 					return
+			*/
+			if(type == "Hearable") //Dripstation edit
+				emote_type |= EMOTE_AUDIBLE
 			message = custom_emote
 	else
 		message = params
@@ -517,7 +530,10 @@
 		return
 	. = ..()
 	message = null
+	/* //Dripstation edit
 	emote_type = EMOTE_VISIBLE
+	*/
+	emote_type = 0 //Dripstation edit
 
 /datum/emote/living/custom/replace_pronoun(mob/user, message)
 	return message
