@@ -138,8 +138,12 @@
 #include "code\game\objects\structures\condimentshelf.dm"
 #include "code\game\objects\structures\crates_lockers\closets.dm"
 #include "code\game\objects\structures\crates_lockers\crates.dm"
+<<<<<<< Updated upstream
 #include "code\game\objects\structures\mirror.dm"
 #include "code\modules\particles\byond_particles\particles\sm_particles.dm"
+=======
+#include "code\game\objects\structures\darts_board.dm"
+>>>>>>> Stashed changes
 #include "code\game\objects\structures\safe.dm"
 #include "code\game\objects\structures\signs\signs_interactive.dm"
 #include "code\game\objects\structures\table_racks.dm"
